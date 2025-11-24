@@ -43,7 +43,6 @@ useSeoMeta({
         >
           <UButton
             :label="page.links[0]?.label"
-            :to="global.meetingLink"
             v-bind="page.links[0]"
           />
           <UButton
@@ -69,9 +68,11 @@ useSeoMeta({
         <UPageCard
           :title="project.title"
           :description="project.description"
+          :to="project.url"
           orientation="horizontal"
           variant="naked"
           :reverse="index % 2 === 1"
+          class="group"
           :ui="{
             wrapper: 'max-sm:order-last'
           }"
@@ -81,38 +82,18 @@ useSeoMeta({
               {{ new Date(project.date).getFullYear() }}
             </span>
           </template>
-
           <template #footer>
-            <div class="flex flex-wrap items-center gap-3 mt-2">
-              <UButton
-                v-if="project.url"
-                variant="outline"
-                size="sm"
-                label="Voir le projet"
-                trailing-icon="i-lucide-external-link"
-                target="_blank"
-                :to="project.url"
+            <ULink
+              :to="project.url"
+              class="text-sm text-primary flex items-center"
+            >
+              View Project
+              <UIcon
+                name="i-lucide-arrow-right"
+                class="size-4 text-primary transition-all opacity-0 group-hover:translate-x-1 group-hover:opacity-100"
               />
-
-              <UButton
-                v-if="project.repo"
-                variant="soft"
-                color="neutral"
-                size="sm"
-                label="Accéder au code"
-                icon="i-lucide-folder-git-2"
-                :to="project.repo"
-              />
-
-              <UButton
-                v-if="!project.url && !project.repo"
-                label="Accès privé"
-                icon="i-lucide-lock"
-                disabled
-              />
-            </div>
+            </ULink>
           </template>
-
           <img
             :src="project.image"
             :alt="project.title"
