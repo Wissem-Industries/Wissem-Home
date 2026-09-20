@@ -57,6 +57,12 @@ export interface SkillGroup {
   items: string[]
 }
 
+export interface ProfileHighlight {
+  eyebrow: string
+  title: string
+  details: Array<{ icon: string; label: string; value: string }>
+}
+
 export interface ContactFormCopy {
   title: string
   description: string
@@ -118,6 +124,9 @@ export interface PortfolioContent {
     objective: string
     description: string
     availability: string
+    seekingInternship: boolean
+    internship: ProfileHighlight
+    focus: ProfileHighlight
     contactCta: string
     aboutTitle: string
     about: string[]

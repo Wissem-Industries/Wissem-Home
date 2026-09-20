@@ -3,11 +3,11 @@ import { getLinkTarget, isExternalLink } from '#shared/utils/links'
 
 const { content } = usePortfolioContent()
 const { canonicalUrl, siteUrl } = useSiteSeo()
-const colorMode = useColorMode()
 const toast = useToast()
-
-const logo = computed(() =>
-  colorMode.value === 'dark' ? '/images/Logo_White.svg' : '/images/Logo_Black.svg',
+const heroHighlight = computed(() =>
+  content.value.profile.seekingInternship
+    ? content.value.profile.internship
+    : content.value.profile.focus,
 )
 const featuredProjects = computed(() => {
   const ids = new Set(content.value.profile.featuredProjectIds)
@@ -71,12 +71,13 @@ useJsonLd(
       <section class="grid min-h-[calc(100vh-7rem)] items-center gap-8 pb-16 lg:grid-cols-[minmax(0,1.15fr)_minmax(20rem,0.85fr)] lg:gap-16 lg:pb-24">
         <div class="space-y-8">
           <div class="space-y-5">
-            <UBadge
-              :label="content.profile.availability"
-              icon="i-ri-checkbox-circle-line"
-              color="success"
-              variant="subtle"
-            />
+            <div class="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.12em] text-primary">
+              <span class="relative flex size-2.5">
+                <span class="absolute inline-flex size-full animate-ping rounded-full bg-primary opacity-55" />
+                <span class="relative inline-flex size-2.5 rounded-full bg-primary" />
+              </span>
+              <span>{{ content.profile.availability }}</span>
+            </div>
 
             <div class="space-y-4">
               <h1 class="max-w-3xl text-5xl font-semibold tracking-[-0.055em] text-highlighted sm:text-6xl lg:text-7xl">
@@ -84,9 +85,6 @@ useJsonLd(
               </h1>
               <p class="max-w-2xl text-lg font-medium leading-8 text-highlighted sm:text-xl">
                 {{ content.profile.status }}
-              </p>
-              <p class="max-w-2xl text-base leading-7 text-muted">
-                {{ content.profile.objective }}
               </p>
               <p class="max-w-2xl text-base leading-7 text-muted">
                 {{ content.profile.description }}
@@ -131,31 +129,49 @@ useJsonLd(
           </div>
         </div>
 
-        <div v-reveal class="relative mx-auto w-full max-w-md lg:mx-0 lg:ml-auto">
+        <div class="reveal relative mx-auto w-full max-w-md lg:mx-0 lg:ml-auto">
           <div class="absolute -inset-8 -z-10 bg-primary/10 blur-3xl" />
-          <UCard :ui="{ body: 'p-8 sm:p-10' }">
-            <div class="flex min-h-80 flex-col justify-between gap-12">
+          <UCard :ui="{ body: 'p-7 sm:p-8' }">
+            <div class="flex min-h-80 flex-col justify-between gap-9">
               <div class="flex items-start justify-between gap-6">
-                <ClientOnly>
+                <div class="flex size-16 items-center justify-center rounded-lg border border-default bg-elevated p-3">
                   <img
-                    :src="logo"
+                    src="/images/Logo_Black.svg"
                     :alt="content.profile.avatarAlt"
-                    width="112"
-                    height="112"
-                    class="size-28 object-contain"
+                    width="40"
+                    height="40"
+                    class="size-10 object-contain dark:hidden"
                   >
-                  <template #fallback><span class="block size-28" /></template>
-                </ClientOnly>
+                  <img
+                    src="/images/Logo_White.svg"
+                    alt=""
+                    width="40"
+                    height="40"
+                    class="hidden size-10 object-contain dark:block"
+                  >
+                </div>
                 <span class="font-mono text-xs text-muted">WISSEM.PRO</span>
               </div>
 
-              <div class="space-y-6">
-                <p class="text-2xl font-medium leading-9 tracking-tight text-highlighted">
-                  {{ content.profile.objective }}
-                </p>
-                <div class="flex items-center gap-3 border-t border-default pt-5 text-sm text-muted">
-                  <UIcon name="i-ri-map-pin-line" class="size-5 text-primary" />
-                  <span>{{ content.profile.location }}</span>
+              <div class="space-y-5">
+                <div class="space-y-2">
+                  <p class="font-mono text-[11px] uppercase tracking-[0.18em] text-primary">
+                    {{ heroHighlight.eyebrow }}
+                  </p>
+                  <h2 class="text-2xl font-medium tracking-tight text-highlighted">
+                    {{ heroHighlight.title }}
+                  </h2>
+                </div>
+                <div class="divide-y divide-default border-y border-default">
+                  <div
+                    v-for="detail in heroHighlight.details"
+                    :key="detail.label"
+                    class="grid grid-cols-[1.25rem_5rem_minmax(0,1fr)] items-center gap-3 py-3 text-sm"
+                  >
+                    <UIcon :name="detail.icon" class="size-4 text-primary" />
+                    <span class="text-muted">{{ detail.label }}</span>
+                    <span class="text-right font-medium text-highlighted">{{ detail.value }}</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -165,7 +181,7 @@ useJsonLd(
 
       <section class="grid gap-8 border-t border-default py-16 lg:grid-cols-[0.75fr_1.25fr] lg:gap-16 lg:py-24">
         <SectionHeading :title="content.profile.aboutTitle" eyebrow="01" />
-        <div v-reveal class="space-y-5 text-lg leading-8 text-muted">
+        <div class="reveal space-y-5 text-lg leading-8 text-muted">
           <p v-for="paragraph in content.profile.about" :key="paragraph">
             {{ paragraph }}
           </p>
@@ -188,8 +204,7 @@ useJsonLd(
           <UCard
             v-for="group in content.profile.skills"
             :key="group.title"
-            v-reveal
-            class="h-full"
+            class="liquid-glass liquid-glass-skill reveal h-full"
           >
             <div class="flex h-full flex-col gap-6">
               <div class="space-y-2">
@@ -227,7 +242,11 @@ useJsonLd(
           />
         </div>
         <div class="grid gap-5 lg:grid-cols-3">
-          <div v-for="(project, index) in featuredProjects" :key="project.id" v-reveal>
+          <div
+            v-for="(project, index) in featuredProjects"
+            :key="project.id"
+            class="reveal"
+          >
             <ProjectCard
               :project="project"
               :actions="content.projectActions"
@@ -239,7 +258,7 @@ useJsonLd(
       </section>
 
       <section class="grid gap-5 border-t border-default py-16 lg:grid-cols-3 lg:py-24">
-        <UCard v-reveal class="h-full">
+        <UCard class="reveal h-full">
           <div class="space-y-6">
             <h2 class="text-lg font-medium text-highlighted">{{ content.profile.languagesTitle }}</h2>
             <div class="space-y-5">
@@ -254,7 +273,7 @@ useJsonLd(
           </div>
         </UCard>
 
-        <UCard v-reveal class="h-full">
+        <UCard class="reveal h-full">
           <div class="space-y-6">
             <h2 class="text-lg font-medium text-highlighted">{{ content.profile.interestsTitle }}</h2>
             <div class="flex flex-wrap gap-2">
@@ -269,7 +288,7 @@ useJsonLd(
           </div>
         </UCard>
 
-        <UCard v-reveal class="h-full">
+        <UCard class="reveal h-full">
           <div class="space-y-5">
             <div class="space-y-2">
               <h2 class="text-lg font-medium text-highlighted">{{ content.profile.contactTitle }}</h2>

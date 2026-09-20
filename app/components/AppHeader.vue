@@ -15,7 +15,7 @@ const items = computed(() =>
   <header class="fixed inset-x-0 top-3 z-50 px-3 sm:top-4 sm:px-4">
     <nav
       :aria-label="content.navigation.label"
-      class="mx-auto flex w-fit max-w-full items-center rounded-full border border-default/70 bg-default/80 p-1 shadow-lg shadow-neutral-950/5 backdrop-blur-xl"
+      class="liquid-glass liquid-glass-nav mx-auto flex w-fit max-w-full items-center rounded-full p-1"
     >
       <UNavigationMenu
         :items="items"

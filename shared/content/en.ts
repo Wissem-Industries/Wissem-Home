@@ -53,10 +53,45 @@ export const en = {
     name: 'Wissem.',
     avatarAlt: 'Monochrome logo of Wissem Badraoui.',
     status: 'Student at IMT Nord Europe, in the second year of the integrated preparatory cycle',
-    objective: 'Looking for a technical internship lasting 8 to 12 weeks starting June 8, 2026',
+    objective: 'Engineering student open to technical discussions and collaborations.',
     description:
       'I am interested in software development, data processing, systems security, and building useful tools for technical teams.',
-    availability: 'Available for a technical internship',
+    availability: 'Open to conversations',
+    seekingInternship: false,
+    internship: {
+      eyebrow: 'Opportunity sought',
+      title: 'Introductory technical internship in data engineering',
+      details: [
+        { icon: 'i-ri-time-line', label: 'Duration', value: '8 to 12 weeks' },
+        { icon: 'i-ri-calendar-line', label: 'Start date', value: 'From June 8, 2026' },
+        {
+          icon: 'i-ri-map-pin-line',
+          label: 'Mobility',
+          value: 'Ile-de-France · Lille metropolitan area',
+        },
+      ],
+    },
+    focus: {
+      eyebrow: 'Technical profile',
+      title: 'Software, data and security',
+      details: [
+        {
+          icon: 'i-ri-graduation-cap-line',
+          label: 'Education',
+          value: 'IMT Nord Europe · Undergraduate +2',
+        },
+        {
+          icon: 'i-ri-code-s-slash-line',
+          label: 'Approach',
+          value: 'Build · Automate · Make reliable',
+        },
+        {
+          icon: 'i-ri-map-pin-line',
+          label: 'Mobility',
+          value: 'Ile-de-France · Lille metropolitan area',
+        },
+      ],
+    },
     contactCta: 'Get in touch',
     aboutTitle: 'About',
     about: [
@@ -163,8 +198,7 @@ export const en = {
     interestsTitle: 'Interests',
     interests: ['Cinema', 'Video games', 'Swimming', 'Travel', 'Technology'],
     contactTitle: 'Contact',
-    contactDescription:
-      'For internship opportunities, technical discussions, or additional information.',
+    contactDescription: 'For technical discussions, collaborations, or any other enquiry.',
     locationLabel: 'Location',
     location: 'Ile-de-France · Lille metropolitan area',
   },
@@ -222,7 +256,7 @@ export const en = {
       description:
         'Improvements made to an internal engineering office tool at Nidec Leroy-Somer, including data processing optimizations and new features to improve reliability and daily usability.',
       image:
-        'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=960&q=70',
+        'https://images.unsplash.com/photo-1759884247381-d7222dd72dec?auto=format&fit=crop&w=1200&q=82',
       tags: ['Excel', 'VBA', 'Data Processing', 'Internal Tooling'],
       date: '2025-06-01',
     },
@@ -253,7 +287,7 @@ export const en = {
       description:
         'An administration interface for internal platform operations, with authentication, roles, permissions, and user management.',
       image:
-        'https://images.unsplash.com/photo-1556155092-490a1ba16284?auto=format&fit=crop&w=960&q=70',
+        'https://images.unsplash.com/photo-1754039984985-ef607d80113a?auto=format&fit=crop&w=1200&q=82',
       tags: ['Vue', 'TypeScript', 'Express', 'PostgreSQL', 'Dashboard'],
       date: '2025-01-01',
     },
@@ -263,7 +297,7 @@ export const en = {
       description:
         'A command-line password manager built in Python, with encrypted storage and a CLI interface.',
       image:
-        'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=960&q=70',
+        'https://images.unsplash.com/photo-1743090661056-e51700546169?auto=format&fit=crop&w=1200&q=82',
       repo: 'https://github.com/WissemBad/Password-Manager',
       tags: ['Python', 'CLI', 'Cryptography', 'Security'],
       date: '2024-01-01',
@@ -272,7 +306,7 @@ export const en = {
   contact: {
     title: 'Contact',
     description:
-      'You can contact me for internship opportunities, technical discussions, or additional information.',
+      'You can contact me for technical discussions, collaborations, or any other enquiry.',
     sidebarTitle: 'Details',
     sidebarDescription: 'Ways to reach me and view my public profiles.',
     fields: {

@@ -32,7 +32,7 @@ useBreadcrumbJsonLd(
     </header>
 
     <section class="space-y-6 border-t border-default py-12 sm:py-16">
-      <div v-for="(project, index) in content.projects" :key="project.id" v-reveal>
+      <div v-for="(project, index) in content.projects" :key="project.id" class="reveal">
         <ProjectCard
           :project="project"
           :actions="content.projectActions"

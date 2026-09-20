@@ -16,9 +16,36 @@ defineProps<{ items: TimelineEntry[] }>()
     <article
       v-for="item in items"
       :key="`${item.eyebrow}-${item.title}`"
-      v-reveal
-      class="grid gap-5 py-7 lg:grid-cols-[minmax(0,1fr)_13rem] lg:gap-10"
+      class="reveal grid gap-6 py-8 lg:grid-cols-[11rem_minmax(0,1fr)_12rem] lg:items-start lg:gap-8"
     >
+      <div class="flex items-start justify-between gap-4 lg:block">
+        <div
+          v-if="item.thumbnail"
+          class="flex h-20 w-32 shrink-0 items-center justify-center rounded-lg border border-primary/15 bg-primary/5 p-3 shadow-sm shadow-primary/5 lg:h-24 lg:w-44 lg:p-4"
+        >
+          <img
+            :src="item.thumbnail"
+            :alt="item.eyebrow"
+            width="144"
+            height="72"
+            loading="lazy"
+            decoding="async"
+            class="max-h-full max-w-full object-contain"
+          >
+        </div>
+
+        <div class="space-y-2 text-right text-xs text-muted lg:hidden">
+          <p class="flex items-center justify-end gap-2">
+            <UIcon name="i-ri-calendar-line" class="size-4 text-primary" />
+            <span>{{ item.period }}</span>
+          </p>
+          <p v-if="item.location" class="flex items-center justify-end gap-2">
+            <UIcon name="i-ri-map-pin-line" class="size-4 text-primary" />
+            <span>{{ item.location }}</span>
+          </p>
+        </div>
+      </div>
+
       <div class="space-y-4">
         <div class="space-y-2">
           <p class="font-mono text-xs uppercase tracking-[0.18em] text-primary">
@@ -37,18 +64,8 @@ defineProps<{ items: TimelineEntry[] }>()
         </ul>
       </div>
 
-      <div class="flex items-start justify-between gap-5 lg:flex-col lg:items-end">
-        <img
-          v-if="item.thumbnail"
-          :src="item.thumbnail"
-          :alt="item.eyebrow"
-          width="112"
-          height="56"
-          loading="lazy"
-          decoding="async"
-          class="h-12 w-24 object-contain object-left lg:h-14 lg:w-28 lg:object-right"
-        >
-        <div class="space-y-2 text-right text-xs text-muted">
+      <div class="hidden space-y-3 border-l border-default pl-6 text-xs text-muted lg:block">
+        <div class="space-y-3">
           <p class="flex items-center justify-end gap-2">
             <UIcon name="i-ri-calendar-line" class="size-4 text-primary" />
             <span>{{ item.period }}</span>

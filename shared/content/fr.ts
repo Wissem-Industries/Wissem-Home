@@ -53,10 +53,41 @@ export const fr = {
     name: 'Wissem.',
     avatarAlt: 'Logo monochrome de Wissem Badraoui.',
     status: 'Étudiant à IMT Nord Europe, en deuxième année du cycle préparatoire intégré',
-    objective: 'Recherche un stage technique de 8 à 12 semaines à partir du 8 juin 2026',
+    objective: 'Étudiant en ingénierie, ouvert aux échanges techniques et aux collaborations.',
     description:
       'Je m’intéresse au développement logiciel, au traitement de données, à la sécurité des systèmes et aux outils utiles aux équipes techniques.',
-    availability: 'Disponible pour un stage technique',
+    availability: 'Ouvert aux échanges',
+    seekingInternship: false,
+    internship: {
+      eyebrow: 'Opportunité recherchée',
+      title: 'Stage d’initiation technique en ingénierie des données',
+      details: [
+        { icon: 'i-ri-time-line', label: 'Durée', value: '8 à 12 semaines' },
+        { icon: 'i-ri-calendar-line', label: 'Début', value: 'À partir du 8 juin 2026' },
+        {
+          icon: 'i-ri-map-pin-line',
+          label: 'Mobilité',
+          value: 'Île-de-France · Métropole lilloise',
+        },
+      ],
+    },
+    focus: {
+      eyebrow: 'Profil technique',
+      title: 'Logiciel, données et sécurité',
+      details: [
+        { icon: 'i-ri-graduation-cap-line', label: 'Formation', value: 'IMT Nord Europe · BAC+2' },
+        {
+          icon: 'i-ri-code-s-slash-line',
+          label: 'Approche',
+          value: 'Concevoir · Automatiser · Fiabiliser',
+        },
+        {
+          icon: 'i-ri-map-pin-line',
+          label: 'Mobilité',
+          value: 'Île-de-France · Métropole lilloise',
+        },
+      ],
+    },
     contactCta: 'Me contacter',
     aboutTitle: 'À propos',
     about: [
@@ -163,8 +194,7 @@ export const fr = {
     interestsTitle: 'Centres d’intérêt',
     interests: ['Cinéma', 'Jeux vidéo', 'Natation', 'Voyages', 'Technologie'],
     contactTitle: 'Contact',
-    contactDescription:
-      'Pour une candidature de stage, un échange ou l’envoi d’informations complémentaires.',
+    contactDescription: 'Pour un échange technique, une collaboration ou toute autre demande.',
     locationLabel: 'Localisation',
     location: 'Île-de-France · Métropole lilloise',
   },
@@ -222,7 +252,7 @@ export const fr = {
       description:
         'Amélioration d’un outil interne du bureau d’études chez Nidec Leroy-Somer : optimisation du traitement de données et ajout de fonctionnalités pour améliorer la fiabilité et l’usage de l’outil.',
       image:
-        'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=960&q=70',
+        'https://images.unsplash.com/photo-1759884247381-d7222dd72dec?auto=format&fit=crop&w=1200&q=82',
       tags: ['Excel', 'VBA', 'Data Processing', 'Internal Tooling'],
       date: '2025-06-01',
     },
@@ -253,7 +283,7 @@ export const fr = {
       description:
         'Interface d’administration pour la gestion interne d’une plateforme, avec authentification, rôles, permissions et gestion des utilisateurs.',
       image:
-        'https://images.unsplash.com/photo-1556155092-490a1ba16284?auto=format&fit=crop&w=960&q=70',
+        'https://images.unsplash.com/photo-1754039984985-ef607d80113a?auto=format&fit=crop&w=1200&q=82',
       tags: ['Vue', 'TypeScript', 'Express', 'PostgreSQL', 'Dashboard'],
       date: '2025-01-01',
     },
@@ -263,7 +293,7 @@ export const fr = {
       description:
         'Gestionnaire de mots de passe en ligne de commande développé en Python, avec stockage chiffré et interface CLI.',
       image:
-        'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=960&q=70',
+        'https://images.unsplash.com/photo-1743090661056-e51700546169?auto=format&fit=crop&w=1200&q=82',
       repo: 'https://github.com/WissemBad/Password-Manager',
       tags: ['Python', 'CLI', 'Cryptographie', 'Sécurité'],
       date: '2024-01-01',
@@ -272,7 +302,7 @@ export const fr = {
   contact: {
     title: 'Contact',
     description:
-      'Vous pouvez me contacter pour une candidature de stage, un échange technique ou l’envoi d’informations complémentaires.',
+      'Vous pouvez me contacter pour un échange technique, une collaboration ou toute autre demande.',
     sidebarTitle: 'Coordonnées',
     sidebarDescription: 'Les moyens pour me joindre et consulter mes profils publics.',
     fields: {
