@@ -5,6 +5,7 @@ import { createEmptyContactPayload, getContactFieldErrors } from '#shared/utils/
 const { content } = usePortfolioContent()
 const { canonicalUrl, siteUrl } = useSiteSeo()
 const toast = useToast()
+const { revealStyle } = useMotionPresets()
 const loading = ref(false)
 const submitted = ref(false)
 const state = reactive<ContactPayload>(createEmptyContactPayload())
@@ -66,7 +67,10 @@ useBreadcrumbJsonLd(
 
 <template>
   <UContainer>
-    <header class="max-w-3xl space-y-5 pb-14 pt-8 sm:pb-20 sm:pt-14">
+    <header
+      class="reveal reveal--hero max-w-3xl space-y-5 pb-14 pt-8 sm:pb-20 sm:pt-14"
+      :style="revealStyle()"
+    >
       <p class="font-mono text-xs uppercase tracking-[0.2em] text-primary">
         {{ content.pages.contact.eyebrow }}
       </p>
@@ -79,7 +83,7 @@ useBreadcrumbJsonLd(
     </header>
 
     <section class="grid items-stretch gap-5 border-t border-default py-12 lg:grid-cols-[22rem_minmax(0,1fr)] lg:py-16">
-      <UCard class="reveal h-full">
+      <UCard class="motion-card reveal h-full" :style="revealStyle(0)">
         <div class="space-y-6">
           <div class="space-y-2">
             <h2 class="text-lg font-medium text-highlighted">{{ content.contact.sidebarTitle }}</h2>
@@ -93,7 +97,7 @@ useBreadcrumbJsonLd(
         </div>
       </UCard>
 
-      <UCard class="reveal h-full">
+      <UCard class="motion-card reveal h-full" :style="revealStyle(1)">
         <UForm :state="state" class="space-y-6" @submit="onSubmit">
           <div class="grid gap-5 sm:grid-cols-2">
             <UFormField
@@ -167,7 +171,7 @@ useBreadcrumbJsonLd(
               :disabled="loading || (submitted && errors.size > 0)"
               trailing-icon="i-ri-send-plane-line"
               size="lg"
-              class="justify-center sm:min-w-52"
+              class="min-h-11 justify-center sm:min-h-0 sm:min-w-52"
             />
           </div>
         </UForm>

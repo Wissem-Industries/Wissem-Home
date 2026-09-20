@@ -1,6 +1,7 @@
 <script setup lang="ts">
 const { content } = usePortfolioContent()
 const { canonicalUrl, siteUrl } = useSiteSeo()
+const { revealStyle } = useMotionPresets()
 
 usePageSeo(
   computed(() => ({
@@ -19,7 +20,10 @@ useBreadcrumbJsonLd(
 
 <template>
   <UContainer>
-    <header class="max-w-3xl space-y-5 pb-14 pt-8 sm:pb-20 sm:pt-14">
+    <header
+      class="reveal reveal--hero max-w-3xl space-y-5 pb-14 pt-8 sm:pb-20 sm:pt-14"
+      :style="revealStyle()"
+    >
       <p class="font-mono text-xs uppercase tracking-[0.2em] text-primary">
         {{ content.pages.projects.eyebrow }}
       </p>
@@ -32,7 +36,12 @@ useBreadcrumbJsonLd(
     </header>
 
     <section class="space-y-6 border-t border-default py-12 sm:py-16">
-      <div v-for="(project, index) in content.projects" :key="project.id" class="reveal">
+      <div
+        v-for="(project, index) in content.projects"
+        :key="project.id"
+        class="reveal"
+        :style="revealStyle(index)"
+      >
         <ProjectCard
           :project="project"
           :actions="content.projectActions"

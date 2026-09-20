@@ -26,6 +26,7 @@ const credits = computed(() => `© ${new Date().getFullYear()} ${content.value.f
           color="neutral"
           variant="ghost"
           size="sm"
+          class="size-11 justify-center p-0 sm:size-9"
         />
       </div>
     </footer>

@@ -26,7 +26,7 @@ async function selectLocale(code: LocaleCode, event: MouseEvent) {
   <details class="group relative">
     <summary
       :aria-label="content.localeSwitchLabel"
-      class="flex h-9 w-16 cursor-pointer list-none items-center justify-center gap-1.5 rounded-full px-2 text-toned hover:bg-elevated/50 hover:text-highlighted"
+      class="flex h-11 w-16 cursor-pointer list-none items-center justify-center gap-1.5 rounded-full px-2 text-toned hover:bg-elevated/50 hover:text-highlighted sm:h-9"
     >
       <UIcon :name="currentLanguage?.icon" aria-hidden="true" class="size-3.5" />
       <span class="font-mono text-[10px]">{{ locale.toUpperCase() }}</span>
@@ -43,7 +43,7 @@ async function selectLocale(code: LocaleCode, event: MouseEvent) {
         v-for="language in languages"
         :key="language.code"
         :href="fallbackHref(language.code)"
-        class="flex items-center justify-between gap-4 rounded-sm px-3 py-2 text-xs text-toned hover:bg-accented hover:text-highlighted"
+        class="flex min-h-11 items-center justify-between gap-4 rounded-sm px-3 py-2.5 text-xs text-toned hover:bg-accented hover:text-highlighted"
         :aria-current="locale === language.code ? 'true' : undefined"
         @click.prevent="selectLocale(language.code, $event)"
       >

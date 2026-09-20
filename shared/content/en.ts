@@ -21,10 +21,10 @@ export const en = {
     applicationName: 'Wissem Badraoui',
     defaultTitle: 'Wissem Badraoui | Portfolio',
     defaultDescription:
-      'Professional portfolio of Wissem Badraoui, an IMT Nord Europe student with projects, experience, resume, and contact information.',
+      'Professional portfolio of Wissem Badraoui, a first-year engineering student at IMT Nord Europe, with projects, experience, resume, and contact information.',
     socialImageAlt: "Preview of Wissem's portfolio",
     personDescription:
-      'IMT Nord Europe student interested in software development, data processing, systems security, and useful tools for technical teams.',
+      'First-year engineering student at IMT Nord Europe, interested in software development, data processing, systems security, and useful tools for technical teams.',
   },
   pages: {
     home: {
@@ -32,7 +32,7 @@ export const en = {
       heading: 'Portfolio',
       title: 'Wissem Badraoui, professional portfolio',
       description:
-        'Professional portfolio of Wissem Badraoui, an IMT Nord Europe student featuring technical projects, experience, resume, and contact details.',
+        'Professional portfolio of Wissem Badraoui, a first-year engineering student at IMT Nord Europe, featuring technical projects, experience, resume, and contact details.',
     },
     projects: {
       eyebrow: 'Selected work',
@@ -52,7 +52,7 @@ export const en = {
   profile: {
     name: 'Wissem.',
     avatarAlt: 'Monochrome logo of Wissem Badraoui.',
-    status: 'Student at IMT Nord Europe, in the second year of the integrated preparatory cycle',
+    status: 'First-year engineering student at IMT Nord Europe',
     objective: 'Engineering student open to technical discussions and collaborations.',
     description:
       'I am interested in software development, data processing, systems security, and building useful tools for technical teams.',
@@ -78,7 +78,7 @@ export const en = {
         {
           icon: 'i-ri-graduation-cap-line',
           label: 'Education',
-          value: 'IMT Nord Europe · Undergraduate +2',
+          value: 'IMT Nord Europe · Engineering cycle',
         },
         {
           icon: 'i-ri-code-s-slash-line',
@@ -100,6 +100,20 @@ export const en = {
     ],
     experienceTitle: 'Experience',
     experience: [
+      {
+        title: 'Technical internship · Modernizing an internal audit support tool',
+        organization: 'French Public Finances Directorate (DGFiP)',
+        period: '2026 · 11 weeks',
+        location: 'Paris',
+        thumbnail: '/images/dgfip-logo.png',
+        bullets: [
+          'Modernized and restructured a Python/Tkinter business application used by authorized auditors for payment audits and payment-anomaly analysis.',
+          'Improved high-volume data processing with SQLite and DuckDB by removing expensive or repeated operations.',
+          'Built multi-criteria search, review, qualification, and result presentation workflows while keeping human judgment central.',
+          'Strengthened traceability and session recovery while preserving existing business rules and data.',
+          'Consolidated the application and its user documentation through iterative feedback with supervisors and business users.',
+        ],
+      },
       {
         title: 'Technical internship · Company discovery',
         organization: 'Nidec Leroy-Somer',
@@ -131,12 +145,13 @@ export const en = {
     education: [
       {
         institution: 'IMT Nord Europe',
-        title: 'Integrated preparatory cycle · Engineering degree',
+        title: 'Engineering degree · Engineering cycle',
         period: '2024 – Present',
         location: 'Lille',
         thumbnail: '/images/imt-logo.png',
         details: [
-          'Second-year student (undergraduate level +2).',
+          'First-year engineering-cycle student (undergraduate level +3).',
+          'Completed the integrated preparatory cycle in 2026.',
           'General academic background in mathematics, physics, and computer science.',
           'Collaborative group work and project-based learning.',
           'First foundations in project management.',
@@ -166,7 +181,7 @@ export const en = {
       {
         title: 'Data',
         description: 'Application data storage, querying, and processing.',
-        items: ['PostgreSQL', 'MySQL', 'MongoDB', 'Prisma'],
+        items: ['PostgreSQL', 'SQLite', 'DuckDB', 'Data processing'],
       },
       {
         title: 'Infrastructure',

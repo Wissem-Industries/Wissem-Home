@@ -9,14 +9,17 @@ interface TimelineEntry {
 }
 
 defineProps<{ items: TimelineEntry[] }>()
+
+const { revealStyle } = useMotionPresets()
 </script>
 
 <template>
   <div class="divide-y divide-default border-y border-default">
     <article
-      v-for="item in items"
+      v-for="(item, index) in items"
       :key="`${item.eyebrow}-${item.title}`"
-      class="reveal grid gap-6 py-8 lg:grid-cols-[11rem_minmax(0,1fr)_12rem] lg:items-start lg:gap-8"
+      class="reveal grid gap-6 py-9 lg:grid-cols-[11rem_minmax(0,1fr)_12rem] lg:items-start lg:gap-8"
+      :style="revealStyle(index)"
     >
       <div class="flex items-start justify-between gap-4 lg:block">
         <div
@@ -46,7 +49,7 @@ defineProps<{ items: TimelineEntry[] }>()
         </div>
       </div>
 
-      <div class="space-y-4">
+      <div class="max-w-3xl space-y-4">
         <div class="space-y-2">
           <p class="font-mono text-xs uppercase tracking-[0.18em] text-primary">
             {{ item.eyebrow }}

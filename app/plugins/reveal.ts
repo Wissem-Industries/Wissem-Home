@@ -1,3 +1,5 @@
+import { MOTION_PRESETS } from '~/composables/useMotionPresets'
+
 export default defineNuxtPlugin((nuxtApp) => {
   if (import.meta.server) return
 
@@ -13,7 +15,10 @@ export default defineNuxtPlugin((nuxtApp) => {
             observer?.unobserve(entry.target)
           }
         },
-        { threshold: 0.16 },
+        {
+          threshold: MOTION_PRESETS.reveal.threshold,
+          rootMargin: MOTION_PRESETS.reveal.rootMargin,
+        },
       )
 
   function observeReveals() {

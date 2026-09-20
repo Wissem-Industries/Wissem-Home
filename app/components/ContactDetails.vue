@@ -37,7 +37,7 @@ defineProps<{
           :to="link.to"
           :external="isExternalLink(link.to)"
           :target="getLinkTarget(link.to)"
-          class="mt-1 block truncate text-sm font-medium text-highlighted hover:text-primary"
+          class="-my-2 mt-1 inline-flex min-h-11 max-w-full items-center truncate py-2 text-sm font-medium text-highlighted hover:text-primary sm:min-h-0 sm:py-0"
         >
           {{ link.value }}
         </ULink>

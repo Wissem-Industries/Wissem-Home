@@ -4,6 +4,7 @@ import { getLinkTarget, isExternalLink } from '#shared/utils/links'
 const { content } = usePortfolioContent()
 const { canonicalUrl, siteUrl } = useSiteSeo()
 const toast = useToast()
+const { revealStyle } = useMotionPresets()
 const interestIcons = [
   'i-ri-movie-2-line',
   'i-ri-gamepad-line',
@@ -80,8 +81,9 @@ useJsonLd(
         :class="content.profile.seekingInternship ? 'lg:grid-cols-[minmax(0,1.15fr)_minmax(20rem,0.85fr)]' : 'justify-items-center'"
       >
         <div
-          class="space-y-8"
+          class="reveal reveal--hero space-y-8"
           :class="content.profile.seekingInternship ? '' : 'max-w-3xl text-center'"
+          :style="revealStyle()"
         >
           <div class="space-y-5">
             <div
@@ -89,7 +91,7 @@ useJsonLd(
               :class="content.profile.seekingInternship ? '' : 'justify-center'"
             >
               <span class="relative flex size-2.5">
-                <span class="absolute inline-flex size-full animate-ping rounded-full bg-success opacity-55" />
+                <span class="availability-pulse absolute inline-flex size-full animate-ping rounded-full bg-success opacity-55" />
                 <span class="relative inline-flex size-2.5 rounded-full bg-success" />
               </span>
               <span>{{ content.profile.availability }}</span>
@@ -121,7 +123,7 @@ useJsonLd(
               color="neutral"
               variant="outline"
               size="lg"
-              class="justify-center"
+              class="min-h-11 justify-center sm:min-h-0"
               @click="announceResumeDownload"
             />
             <UButton
@@ -129,7 +131,7 @@ useJsonLd(
               to="/contact"
               trailing-icon="i-ri-arrow-right-line"
               size="lg"
-              class="justify-center"
+              class="min-h-11 justify-center sm:min-h-0"
             />
           </div>
 
@@ -147,6 +149,7 @@ useJsonLd(
               :target="getLinkTarget(link.to)"
               color="neutral"
               variant="ghost"
+              class="size-11 justify-center p-0 sm:size-9"
             />
           </div>
         </div>
@@ -226,7 +229,12 @@ useJsonLd(
       <section class="space-y-10 border-t border-default py-16 lg:py-24">
         <SectionHeading :title="content.profile.skillsTitle" eyebrow="04" />
         <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-          <UCard v-for="group in content.profile.skills" :key="group.title" class="reveal h-full">
+          <UCard
+            v-for="(group, index) in content.profile.skills"
+            :key="group.title"
+            class="motion-card reveal h-full"
+            :style="revealStyle(index)"
+          >
             <div class="flex h-full flex-col gap-6">
               <div class="space-y-2">
                 <h3 class="font-medium text-highlighted">{{ group.title }}</h3>
@@ -260,6 +268,7 @@ useJsonLd(
             color="neutral"
             variant="outline"
             trailing-icon="i-ri-arrow-right-line"
+            class="min-h-11 justify-center sm:min-h-0"
           />
         </div>
         <div class="grid gap-5 lg:grid-cols-3">
@@ -267,6 +276,7 @@ useJsonLd(
             v-for="(project, index) in featuredProjects"
             :key="project.id"
             class="reveal"
+            :style="revealStyle(index)"
           >
             <ProjectCard
               :project="project"
@@ -279,7 +289,7 @@ useJsonLd(
       </section>
 
       <section class="grid gap-5 border-t border-default py-16 lg:grid-cols-3 lg:py-24">
-        <UCard class="reveal h-full">
+        <UCard class="motion-card reveal h-full" :style="revealStyle(0)">
           <div class="space-y-6">
             <h2 class="text-lg font-medium text-highlighted">{{ content.profile.languagesTitle }}</h2>
             <div class="space-y-5">
@@ -294,7 +304,7 @@ useJsonLd(
           </div>
         </UCard>
 
-        <UCard class="reveal h-full">
+        <UCard class="motion-card reveal h-full" :style="revealStyle(1)">
           <div class="space-y-6">
             <h2 class="text-lg font-medium text-highlighted">{{ content.profile.interestsTitle }}</h2>
             <div class="interest-orbit" aria-hidden="true">
@@ -317,7 +327,7 @@ useJsonLd(
           </div>
         </UCard>
 
-        <UCard class="reveal h-full">
+        <UCard class="motion-card reveal h-full" :style="revealStyle(2)">
           <div class="space-y-5">
             <div class="space-y-2">
               <h2 class="text-lg font-medium text-highlighted">{{ content.profile.contactTitle }}</h2>
@@ -332,7 +342,7 @@ useJsonLd(
               :label="content.profile.contactCta"
               to="/contact"
               trailing-icon="i-ri-arrow-right-line"
-              class="w-full justify-center"
+              class="min-h-11 w-full justify-center sm:min-h-0"
             />
           </div>
         </UCard>

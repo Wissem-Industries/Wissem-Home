@@ -13,7 +13,7 @@ defineProps<{
 
 <template>
   <UCard
-    class="group h-full overflow-hidden"
+    class="motion-card group h-full overflow-hidden"
     :ui="{
       body: compact ? 'p-0 sm:p-0' : 'p-0 sm:p-0',
     }"
@@ -35,7 +35,7 @@ defineProps<{
           height="540"
           decoding="async"
           referrerpolicy="no-referrer"
-          class="size-full object-cover transition-transform duration-500 group-hover:scale-[1.025]"
+          class="project-media size-full object-cover transition-transform duration-500 group-hover:scale-[1.025]"
         >
         <span
           class="absolute left-3 top-3 rounded-full border border-white/15 bg-neutral-950/70 px-2.5 py-1 font-mono text-xs text-white backdrop-blur"
@@ -74,6 +74,7 @@ defineProps<{
             :target="getLinkTarget(project.url)"
             trailing-icon="i-ri-external-link-line"
             size="sm"
+            class="min-h-11 sm:min-h-0"
           />
           <UButton
             v-if="project.repo"
@@ -85,6 +86,7 @@ defineProps<{
             color="neutral"
             variant="outline"
             size="sm"
+            class="min-h-11 sm:min-h-0"
           />
           <UButton
             v-if="!project.url && !project.repo"
@@ -94,6 +96,7 @@ defineProps<{
             variant="soft"
             size="sm"
             disabled
+            class="min-h-11 sm:min-h-0"
           />
         </div>
       </div>

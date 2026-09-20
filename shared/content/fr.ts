@@ -21,10 +21,10 @@ export const fr = {
     applicationName: 'Wissem Badraoui',
     defaultTitle: 'Portfolio de Wissem Badraoui',
     defaultDescription:
-      'Portfolio professionnel de Wissem Badraoui, étudiant à IMT Nord Europe : projets, expériences, CV et contact.',
+      'Portfolio professionnel de Wissem Badraoui, élève ingénieur à IMT Nord Europe : projets, expériences, CV et contact.',
     socialImageAlt: 'Aperçu du portfolio de Wissem',
     personDescription:
-      'Étudiant à IMT Nord Europe, intéressé par le développement logiciel, le traitement de données, la sécurité des systèmes et les outils utiles aux équipes techniques.',
+      'Élève ingénieur à IMT Nord Europe, intéressé par le développement logiciel, le traitement de données, la sécurité des systèmes et les outils utiles aux équipes techniques.',
   },
   pages: {
     home: {
@@ -32,7 +32,7 @@ export const fr = {
       heading: 'Portfolio',
       title: 'Wissem Badraoui, portfolio professionnel',
       description:
-        'Portfolio professionnel de Wissem Badraoui, étudiant à IMT Nord Europe, avec projets techniques, expériences, CV et contact.',
+        'Portfolio professionnel de Wissem Badraoui, élève ingénieur à IMT Nord Europe, avec projets techniques, expériences, CV et contact.',
     },
     projects: {
       eyebrow: 'Projets sélectionnés',
@@ -52,8 +52,8 @@ export const fr = {
   profile: {
     name: 'Wissem.',
     avatarAlt: 'Logo monochrome de Wissem Badraoui.',
-    status: 'Étudiant à IMT Nord Europe, en deuxième année du cycle préparatoire intégré',
-    objective: 'Étudiant en ingénierie, ouvert aux échanges techniques et aux collaborations.',
+    status: 'Élève ingénieur à IMT Nord Europe, en première année du cycle ingénieur',
+    objective: 'Élève ingénieur, ouvert aux échanges techniques et aux collaborations.',
     description:
       'Je m’intéresse au développement logiciel, au traitement de données, à la sécurité des systèmes et aux outils utiles aux équipes techniques.',
     availability: 'Ouvert aux échanges',
@@ -75,7 +75,11 @@ export const fr = {
       eyebrow: 'Profil technique',
       title: 'Logiciel, données et sécurité',
       details: [
-        { icon: 'i-ri-graduation-cap-line', label: 'Formation', value: 'IMT Nord Europe · BAC+2' },
+        {
+          icon: 'i-ri-graduation-cap-line',
+          label: 'Formation',
+          value: 'IMT Nord Europe · Cycle ingénieur',
+        },
         {
           icon: 'i-ri-code-s-slash-line',
           label: 'Approche',
@@ -96,6 +100,20 @@ export const fr = {
     ],
     experienceTitle: 'Expériences',
     experience: [
+      {
+        title: 'Stage technique · Modernisation d’un outil d’assistance à l’audit',
+        organization: 'Direction générale des Finances publiques (DGFiP)',
+        period: '2026 · 11 semaines',
+        location: 'Paris',
+        thumbnail: '/images/dgfip-logo.png',
+        bullets: [
+          'Modernisé et restructuré une application métier Python/Tkinter d’assistance à l’audit de paiements et à l’analyse d’anomalies, utilisée par des auditeurs habilités.',
+          'Optimisé le traitement de volumes de données importants avec SQLite et DuckDB en supprimant des opérations coûteuses ou répétées.',
+          'Conçu des parcours de recherche multicritère, de contrôle, de qualification et de restitution en maintenant le jugement humain au centre.',
+          'Renforcé la traçabilité et la reprise d’un travail interrompu tout en préservant les règles métier et les données existantes.',
+          'Consolidé l’application et sa documentation au fil d’itérations avec les encadrants et les utilisateurs métier.',
+        ],
+      },
       {
         title: 'Stage technique · Découverte de l’entreprise',
         organization: 'Nidec Leroy-Somer',
@@ -127,12 +145,13 @@ export const fr = {
     education: [
       {
         institution: 'IMT Nord Europe',
-        title: 'Cycle préparatoire intégré · Diplôme d’ingénieur',
+        title: 'Diplôme d’ingénieur · Cycle ingénieur',
         period: '2024 – Présent',
         location: 'Lille',
         thumbnail: '/images/imt-logo.png',
         details: [
-          'Étudiant en deuxième année (BAC+2).',
+          'Élève ingénieur en première année du cycle ingénieur (BAC+3).',
+          'Cycle préparatoire intégré validé en 2026.',
           'Formation générale en mathématiques, physique et informatique.',
           'Travaux de groupe et projets collaboratifs.',
           'Premières bases en gestion de projet.',
@@ -162,7 +181,7 @@ export const fr = {
       {
         title: 'Données',
         description: 'Stockage, requêtes et traitement de données applicatives.',
-        items: ['PostgreSQL', 'MySQL', 'MongoDB', 'Prisma'],
+        items: ['PostgreSQL', 'SQLite', 'DuckDB', 'Traitement de données'],
       },
       {
         title: 'Infrastructure',

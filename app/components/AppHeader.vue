@@ -23,7 +23,7 @@ const items = computed(() =>
         :ui="{
           list: 'gap-0.5',
           item: 'py-0',
-          link: 'h-9 rounded-full px-2.5 py-0 text-xs sm:w-20 sm:justify-center sm:px-3 sm:text-sm',
+          link: 'size-11 rounded-full p-0 text-xs sm:h-9 sm:w-20 sm:justify-center sm:px-3 sm:text-sm',
           linkLeadingIcon: 'size-4 shrink-0 sm:hidden',
           linkLabel: 'hidden sm:inline',
         }"

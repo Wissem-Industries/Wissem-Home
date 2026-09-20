@@ -6,7 +6,7 @@ Wissem's Industries with Nuxt 4 and the shared Wissem UI design system.
 ## Stack
 
 - Nuxt 4 and Vue 3
-- `@wissem-industries/ui` 0.2
+- `@wissem-industries/ui` 0.5
 - Nuxt I18n with French and English on the same routes
 - Plausible Analytics
 - Bun for development, tests, builds, and production
@@ -78,3 +78,6 @@ Localized structured content lives in `shared/content`. Interface language is
 selected from `Accept-Language` on the first visit and then persisted in the
 `site_locale` cookie. Both languages intentionally share the same canonical
 URLs.
+
+The DGFiP logo is used only to identify the internship organization and was
+sourced from the CCI Paris Île-de-France institutional website.
