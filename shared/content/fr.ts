@@ -1,0 +1,306 @@
+import type { PortfolioContent } from './types'
+
+export const fr = {
+  locale: 'fr',
+  navigation: {
+    label: 'Navigation principale',
+    home: 'Accueil',
+    projects: 'Projets',
+    contact: 'Contact',
+  },
+  localeSwitchLabel: 'Basculer en anglais',
+  theme: { dark: 'Activer le mode sombre', light: 'Activer le mode clair' },
+  footer: 'Wissem. • Tous droits réservés.',
+  error: {
+    title: 'Page introuvable',
+    description: 'La page demandée n’existe pas ou n’est plus disponible.',
+    home: 'Revenir à l’accueil',
+  },
+  meta: {
+    titleTemplate: '%s | Wissem',
+    applicationName: 'Wissem Badraoui',
+    defaultTitle: 'Portfolio de Wissem Badraoui',
+    defaultDescription:
+      'Portfolio professionnel de Wissem Badraoui, étudiant à IMT Nord Europe : projets, expériences, CV et contact.',
+    socialImageAlt: 'Aperçu du portfolio de Wissem',
+    personDescription:
+      'Étudiant à IMT Nord Europe, intéressé par le développement logiciel, le traitement de données, la sécurité des systèmes et les outils utiles aux équipes techniques.',
+  },
+  pages: {
+    home: {
+      eyebrow: 'Portfolio',
+      heading: 'Portfolio',
+      title: 'Wissem Badraoui, portfolio professionnel',
+      description:
+        'Portfolio professionnel de Wissem Badraoui, étudiant à IMT Nord Europe, avec projets techniques, expériences, CV et contact.',
+    },
+    projects: {
+      eyebrow: 'Projets sélectionnés',
+      heading: 'Projets',
+      title: 'Projets',
+      description:
+        'Une sélection de projets personnels et techniques réalisés en parallèle de mon parcours, avec un intérêt pour les outils utiles, les interfaces web et les environnements concrets.',
+    },
+    contact: {
+      eyebrow: 'Échangeons',
+      heading: 'Contact',
+      title: 'Contact',
+      description:
+        'Coordonnées, profils publics et formulaire de contact pour joindre Wissem Badraoui.',
+    },
+  },
+  profile: {
+    name: 'Wissem.',
+    avatarAlt: 'Logo monochrome de Wissem Badraoui.',
+    status: 'Étudiant à IMT Nord Europe, en deuxième année du cycle préparatoire intégré',
+    objective: 'Recherche un stage technique de 8 à 12 semaines à partir du 8 juin 2026',
+    description:
+      'Je m’intéresse au développement logiciel, au traitement de données, à la sécurité des systèmes et aux outils utiles aux équipes techniques.',
+    availability: 'Disponible pour un stage technique',
+    contactCta: 'Me contacter',
+    aboutTitle: 'À propos',
+    about: [
+      'J’apprécie les projets concrets, où il faut partir d’un besoin réel pour améliorer un outil existant, fiabiliser un traitement ou simplifier l’usage d’une solution pour une équipe.',
+      'Je m’intéresse particulièrement au développement logiciel, au traitement de données et aux enjeux de sécurité, avec une attention portée à la fiabilité, à la clarté et à l’utilité des solutions développées.',
+    ],
+    experienceTitle: 'Expériences',
+    experience: [
+      {
+        title: 'Stage technique · Découverte de l’entreprise',
+        organization: 'Nidec Leroy-Somer',
+        period: '2025 · 6 semaines',
+        location: 'Angoulême',
+        thumbnail: '/images/leroy-somer-logo.png',
+        bullets: [
+          'Analysé les besoins autour d’un outil interne utilisé par des techniciens et des ingénieurs.',
+          'Amélioré les traitements de données et les méthodes de calcul afin de renforcer la fiabilité de l’outil.',
+          'Revu l’interface Excel pour en améliorer la lisibilité et l’usage au quotidien.',
+          'Développé de nouvelles fonctionnalités en VBA puis validé les résultats à partir de données réelles.',
+        ],
+      },
+      {
+        title: 'Contribution technique bénévole',
+        organization: 'Rubik’s Network',
+        period: '2020 – Présent',
+        location: 'À distance',
+        thumbnail: '/images/rubiks.png',
+        bullets: [
+          'Préparé des mises à jour et coordonné l’avancement de sujets liés à la plateforme.',
+          'Rédigé des spécifications et échangé avec développeurs, designers et contributeurs.',
+          'Contribué au développement de fonctionnalités et de systèmes liés à la plateforme.',
+          'Assuré un support utilisateur et participé au traitement ainsi qu’à la priorisation des problèmes signalés.',
+        ],
+      },
+    ],
+    educationTitle: 'Formation',
+    education: [
+      {
+        institution: 'IMT Nord Europe',
+        title: 'Cycle préparatoire intégré · Diplôme d’ingénieur',
+        period: '2024 – Présent',
+        location: 'Lille',
+        thumbnail: '/images/imt-logo.png',
+        details: [
+          'Étudiant en deuxième année (BAC+2).',
+          'Formation générale en mathématiques, physique et informatique.',
+          'Travaux de groupe et projets collaboratifs.',
+          'Premières bases en gestion de projet.',
+        ],
+      },
+      {
+        institution: 'Lycée Saint-Paul',
+        title: 'Baccalauréat général',
+        period: '2021 – 2024',
+        location: 'Angoulême',
+        thumbnail: '/images/saintpaul-logo.png',
+        details: ['Mention Très Bien.', 'Spécialités Mathématiques et Physique-Chimie.'],
+      },
+    ],
+    skillsTitle: 'Compétences',
+    skills: [
+      {
+        title: 'Langages',
+        description: 'Langages utilisés pour le développement applicatif.',
+        items: ['C', 'Python', 'TypeScript', 'JavaScript', 'VBA', 'SQL'],
+      },
+      {
+        title: 'Web',
+        description: 'Développement d’applications web avec l’écosystème JavaScript.',
+        items: ['Nuxt', 'Vue.js', 'Node.js', 'Express'],
+      },
+      {
+        title: 'Données',
+        description: 'Stockage, requêtes et traitement de données applicatives.',
+        items: ['PostgreSQL', 'MySQL', 'MongoDB', 'Prisma'],
+      },
+      {
+        title: 'Infrastructure',
+        description: 'Serveurs, conteneurisation et déploiement d’applications.',
+        items: ['Linux', 'Docker', 'VPS', 'Dokploy', 'CI/CD'],
+      },
+      {
+        title: 'Automatisation',
+        description: 'Scripts pour automatiser des traitements et des tâches techniques.',
+        items: ['Python', 'Excel VBA', 'Parsing', 'CLI'],
+      },
+      {
+        title: 'Outils',
+        description: 'Outils utilisés pour développer, tester et collaborer sur les projets.',
+        items: ['Git', 'Postman', 'JetBrains', 'Jira'],
+      },
+    ],
+    projectsTitle: 'Quelques projets',
+    projectsDescription:
+      'Une sélection de projets personnels et techniques réalisés en parallèle de mon parcours.',
+    featuredProjectIds: ['satt-tool', 'zeldanes', 'password-manager'],
+    allProjects: 'Voir tous les projets',
+    languagesTitle: 'Langues',
+    languages: [
+      { name: 'Français', level: 'Langue maternelle', value: 100 },
+      { name: 'Anglais', level: 'B2', value: 70 },
+      { name: 'Espagnol', level: 'A2', value: 35 },
+    ],
+    interestsTitle: 'Centres d’intérêt',
+    interests: ['Cinéma', 'Jeux vidéo', 'Natation', 'Voyages', 'Technologie'],
+    contactTitle: 'Contact',
+    contactDescription:
+      'Pour une candidature de stage, un échange ou l’envoi d’informations complémentaires.',
+    locationLabel: 'Localisation',
+    location: 'Île-de-France · Métropole lilloise',
+  },
+  resume: {
+    label: 'Télécharger le CV',
+    href: '/files/74b87337454200d4d33f80c4663dc5e5.pdf',
+    filename: 'CV_Wissem_BADRAOUI.pdf',
+    started: 'Le téléchargement du CV a démarré.',
+  },
+  links: [
+    {
+      id: 'email',
+      label: 'Email',
+      value: 'contact@wissem.pro',
+      to: 'mailto:contact@wissem.pro',
+      icon: 'i-lucide-mail',
+    },
+    {
+      id: 'linkedin',
+      label: 'LinkedIn',
+      value: '@WissemBadraoui',
+      to: 'https://linkedin.com/in/WissemBadraoui',
+      icon: 'i-lucide-linkedin',
+    },
+    {
+      id: 'github',
+      label: 'GitHub',
+      value: '@WissemBad',
+      to: 'https://github.com/WissemBad',
+      icon: 'i-lucide-github',
+    },
+    {
+      id: 'website',
+      label: 'Site web',
+      value: 'www.wissem.pro',
+      to: 'https://www.wissem.pro',
+      icon: 'i-lucide-globe',
+    },
+  ],
+  projectActions: { view: 'Voir le projet', repo: 'Accéder au code', private: 'Accès privé' },
+  projects: [
+    {
+      id: 'zeldanes',
+      title: 'ZeldaNES',
+      description:
+        'Projet autour de Zelda, développé en C avec la bibliothèque SDL2 pour créer un jeu inspiré de The Legend of Zelda au cours de mes études.',
+      image: '/images/zelda.png',
+      repo: 'https://github.com/WissemBad/ZeldaNES',
+      tags: ['C', 'SDL2', 'Game', 'Zelda'],
+      date: '2026-01-01',
+    },
+    {
+      id: 'satt-tool',
+      title: 'Outil interne de traitement de données (SATT)',
+      description:
+        'Amélioration d’un outil interne du bureau d’études chez Nidec Leroy-Somer : optimisation du traitement de données et ajout de fonctionnalités pour améliorer la fiabilité et l’usage de l’outil.',
+      image:
+        'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=960&q=70',
+      tags: ['Excel', 'VBA', 'Data Processing', 'Internal Tooling'],
+      date: '2025-06-01',
+    },
+    {
+      id: 'personal-portfolio',
+      title: 'Portfolio personnel',
+      description:
+        'Site personnel développé avec Nuxt et Nuxt UI pour présenter mon parcours, mes projets et mon CV en ligne.',
+      image: '/images/portfolio.png',
+      url: 'https://www.wissem.pro',
+      tags: ['Nuxt', 'Vue', 'Nuxt UI', 'Portfolio'],
+      date: '2025-01-01',
+    },
+    {
+      id: 'parcourtime',
+      title: 'ParcourTime',
+      description:
+        'Application web de compte à rebours pour Parcoursup, avec affichage des dates clés et interface simple à utiliser.',
+      image: '/images/parcourtime.png',
+      url: 'https://parcourtime.wissem.pro',
+      repo: 'https://github.com/WissemBad/ParcourTime',
+      tags: ['Nuxt', 'Vue', 'Countdown', 'Parcoursup'],
+      date: '2025-01-01',
+    },
+    {
+      id: 'internal-dashboard',
+      title: 'Panel d’administration interne',
+      description:
+        'Interface d’administration pour la gestion interne d’une plateforme, avec authentification, rôles, permissions et gestion des utilisateurs.',
+      image:
+        'https://images.unsplash.com/photo-1556155092-490a1ba16284?auto=format&fit=crop&w=960&q=70',
+      tags: ['Vue', 'TypeScript', 'Express', 'PostgreSQL', 'Dashboard'],
+      date: '2025-01-01',
+    },
+    {
+      id: 'password-manager',
+      title: 'Gestionnaire de mots de passe',
+      description:
+        'Gestionnaire de mots de passe en ligne de commande développé en Python, avec stockage chiffré et interface CLI.',
+      image:
+        'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=960&q=70',
+      repo: 'https://github.com/WissemBad/Password-Manager',
+      tags: ['Python', 'CLI', 'Cryptographie', 'Sécurité'],
+      date: '2024-01-01',
+    },
+  ],
+  contact: {
+    title: 'Contact',
+    description:
+      'Vous pouvez me contacter pour une candidature de stage, un échange technique ou l’envoi d’informations complémentaires.',
+    sidebarTitle: 'Coordonnées',
+    sidebarDescription: 'Les moyens pour me joindre et consulter mes profils publics.',
+    fields: {
+      name: { label: 'Nom', placeholder: 'Votre nom' },
+      email: { label: 'Email', placeholder: 'vous@example.com' },
+      subject: { label: 'Sujet', placeholder: 'Sujet du message' },
+      message: { label: 'Message', placeholder: 'Votre message' },
+    },
+    submit: 'Envoyer le message',
+    responseHint: 'Réponse dans les plus brefs délais.',
+    privacyHint:
+      'Les informations transmises servent uniquement à traiter votre demande de contact. Elles ne sont ni stockées, ni publiées ou partagées avec des tiers.',
+    privacyAriaLabel: 'Informations sur le traitement des données',
+    validation: {
+      name: 'Le nom est trop court.',
+      email: 'L’adresse email n’est pas valide.',
+      subject: 'Le sujet est trop court.',
+      message: 'Le message est trop court.',
+    },
+    messages: {
+      successTitle: 'Message envoyé',
+      successDescription: 'Merci pour votre message, je reviendrai vers vous dès que possible.',
+      errorTitle: 'Envoi impossible',
+      errorDescription:
+        'Une erreur est survenue lors de l’envoi du message. Merci de réessayer plus tard.',
+      rateLimited: 'Trop de tentatives, réessaie dans quelques minutes.',
+      invalidPayload: 'Les données du formulaire sont invalides.',
+      unavailable: 'Le service de contact est indisponible.',
+    },
+  },
+} satisfies PortfolioContent

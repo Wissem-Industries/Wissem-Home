@@ -1,0 +1,35 @@
+{
+  "name": "@wissem-industries/wissem-home",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "bun@1.4.2",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "bun --bun nuxt build",
+    "dev": "bun --bun nuxt dev",
+    "start": "bun .output/server/index.mjs",
+    "preview": "bun --bun nuxt preview",
+    "postinstall": "bun --bun nuxt prepare",
+    "lint": "biome check .",
+    "lint:fix": "biome check --write .",
+    "typecheck": "bun --bun nuxt typecheck",
+    "test": "bun test",
+    "check": "bun run lint && bun run test && bun run typecheck && bun run build"
+  },
+  "dependencies": {
+    "@nuxtjs/i18n": "^10.6.0",
+    "@nuxtjs/plausible": "^4.0.0",
+    "nuxt": "^4.5.2"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.5.14",
+    "@types/bun": "^1.4.2",
+    "@types/node": "^24.13.4",
+    "@wissem-industries/ui": "0.2.0",
+    "typescript": "^6.0.3",
+    "vue-tsc": "^3.3.11"
+  }
+}

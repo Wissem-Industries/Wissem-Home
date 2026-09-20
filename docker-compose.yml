@@ -1,0 +1,25 @@
+services:
+  app:
+    build:
+      context: .
+      secrets:
+        - github_packages_token
+      dockerfile: Dockerfile
+    image: wissem-home:production
+    init: true
+    restart: unless-stopped
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      NODE_ENV: production
+      HOST: 0.0.0.0
+      PORT: 3000
+      NITRO_HOST: 0.0.0.0
+      NITRO_PORT: 3000
+    ports:
+      - "${APP_PORT:-3000}:3000"
+
+secrets:
+  github_packages_token:
+    environment: GITHUB_PACKAGES_TOKEN

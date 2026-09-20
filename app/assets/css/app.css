@@ -1,0 +1,40 @@
+html {
+  overflow-x: clip;
+}
+
+.site-grid {
+  background-image:
+    linear-gradient(
+      to right,
+      color-mix(in srgb, var(--ui-border) 35%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--ui-border) 30%, transparent) 1px,
+      transparent 1px
+    );
+  background-size: 3rem 3rem;
+  mask-image: linear-gradient(to bottom, black, transparent 82%);
+}
+
+.reveal-enabled .reveal {
+  opacity: 0;
+  transform: translateY(1rem);
+  transition:
+    opacity 440ms ease,
+    transform 440ms ease;
+}
+
+.reveal-enabled .reveal[data-visible="true"] {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-enabled .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

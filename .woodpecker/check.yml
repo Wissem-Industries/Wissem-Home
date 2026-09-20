@@ -1,0 +1,28 @@
+when:
+  - event: [push, pull_request]
+
+steps:
+  - name: install
+    image: oven/bun:1.4.2-alpine
+    environment:
+      GITHUB_PACKAGES_TOKEN:
+        from_secret: github_packages_token
+    commands:
+      - npm config set //npm.pkg.github.com/:_authToken "$GITHUB_PACKAGES_TOKEN"
+      - bun install --frozen-lockfile
+
+  - name: check
+    image: oven/bun:1.4.2-alpine
+    commands:
+      - bun run check
+
+  - name: docker
+    image: woodpeckerci/plugin-docker-buildx
+    environment:
+      GITHUB_PACKAGES_TOKEN:
+        from_secret: github_packages_token
+    settings:
+      dry_run: true
+      repo: wissem-industries/wissem-home
+      secrets:
+        - id=github_packages_token,env=GITHUB_PACKAGES_TOKEN
