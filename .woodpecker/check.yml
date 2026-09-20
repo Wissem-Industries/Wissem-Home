@@ -19,12 +19,10 @@ steps:
 
   - name: docker
     image: woodpeckerci/plugin-docker-buildx:6.1.1
-    privileged: true
-    environment:
-      GITHUB_PACKAGES_TOKEN:
-        from_secret: github_packages_token
     settings:
       dry_run: true
       repo: wissem-industries/wissem-home
+      github_packages_token:
+        from_secret: github_packages_token
       secrets:
-        - id=github_packages_token,env=GITHUB_PACKAGES_TOKEN
+        - id=github_packages_token\,env=PLUGIN_GITHUB_PACKAGES_TOKEN

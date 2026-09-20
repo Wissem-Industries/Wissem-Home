@@ -26,7 +26,7 @@ async function selectLocale(code: LocaleCode, event: MouseEvent) {
   <details class="group relative">
     <summary
       :aria-label="content.localeSwitchLabel"
-      class="flex h-8 w-16 cursor-pointer list-none items-center justify-center gap-1.5 rounded-full text-toned hover:bg-elevated/50 hover:text-highlighted"
+      class="flex h-8 w-14 cursor-pointer list-none items-center justify-center gap-1 rounded-full px-1.5 text-toned hover:bg-elevated/50 hover:text-highlighted"
     >
       <UIcon :name="currentLanguage?.icon" aria-hidden="true" class="size-3.5" />
       <span class="font-mono text-[10px]">{{ locale.toUpperCase() }}</span>
