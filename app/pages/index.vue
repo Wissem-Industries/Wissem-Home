@@ -297,24 +297,21 @@ useJsonLd(
         <UCard class="reveal h-full">
           <div class="space-y-6">
             <h2 class="text-lg font-medium text-highlighted">{{ content.profile.interestsTitle }}</h2>
-            <ul class="space-y-4">
+            <div class="interest-orbit" aria-hidden="true">
+              <div class="interest-orbit__center">
+                <UIcon name="i-ri-compass-3-line" class="size-6 text-primary" />
+              </div>
+            </div>
+            <ul class="interest-orbit__items">
               <li
                 v-for="(interest, index) in content.profile.interests"
                 :key="interest"
-                class="flex items-center gap-3 text-sm font-medium text-highlighted"
-                :class="index % 2 === 0 ? 'justify-start' : 'justify-end text-right'"
+                class="interest-orbit__item"
               >
-                <UIcon
-                  v-if="index % 2 === 0"
-                  :name="interestIcons[index]"
-                  class="size-5 shrink-0 text-primary"
-                />
+                <span class="interest-orbit__icon">
+                  <UIcon :name="interestIcons[index]" class="size-4 text-primary" />
+                </span>
                 <span>{{ interest }}</span>
-                <UIcon
-                  v-if="index % 2 !== 0"
-                  :name="interestIcons[index]"
-                  class="size-5 shrink-0 text-primary"
-                />
               </li>
             </ul>
           </div>

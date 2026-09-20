@@ -23,7 +23,7 @@ function setTheme(mode: 'light' | 'dark') {
     color="neutral"
     variant="ghost"
     size="sm"
-    class="theme-switch theme-switch--dark size-8 justify-center rounded-full p-0"
+    class="theme-switch theme-switch--dark size-9 justify-center rounded-full p-0"
     @click.prevent="setTheme('dark')"
   />
   <UButton
@@ -34,7 +34,7 @@ function setTheme(mode: 'light' | 'dark') {
     color="neutral"
     variant="ghost"
     size="sm"
-    class="theme-switch theme-switch--light size-8 justify-center rounded-full p-0"
+    class="theme-switch theme-switch--light size-9 justify-center rounded-full p-0"
     @click.prevent="setTheme('light')"
   />
 </template>

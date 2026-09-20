@@ -35,6 +35,103 @@ html {
   text-shadow: 0 0 14px color-mix(in srgb, white 24%, transparent);
 }
 
+.interest-orbit {
+  position: relative;
+  width: min(100%, 17rem);
+  aspect-ratio: 1;
+  margin: 0 auto;
+}
+
+.interest-orbit::before,
+.interest-orbit::after {
+  position: absolute;
+  inset: 2.75rem;
+  border: 1px solid color-mix(in srgb, var(--ui-primary) 24%, var(--ui-border));
+  border-radius: 9999px;
+  content: "";
+}
+
+.interest-orbit::after {
+  inset: 4.5rem;
+  border-color: color-mix(in srgb, var(--ui-primary) 14%, transparent);
+}
+
+.interest-orbit__center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: grid;
+  width: 4rem;
+  height: 4rem;
+  place-items: center;
+  border: 1px solid color-mix(in srgb, var(--ui-primary) 26%, var(--ui-border));
+  border-radius: 9999px;
+  background: color-mix(in srgb, var(--ui-bg-elevated) 78%, transparent);
+  box-shadow: 0 0 2rem color-mix(in srgb, var(--ui-primary) 9%, transparent);
+  transform: translate(-50%, -50%);
+}
+
+.interest-orbit__items {
+  position: relative;
+  width: min(100%, 17rem);
+  aspect-ratio: 1;
+  margin: -17rem auto 0;
+}
+
+.interest-orbit__item {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  max-width: 8.5rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  line-height: 1.25rem;
+  color: var(--ui-text-highlighted);
+}
+
+.interest-orbit__item:nth-child(1) {
+  top: 0;
+  left: 50%;
+  flex-direction: column;
+  transform: translateX(-50%);
+}
+
+.interest-orbit__item:nth-child(2) {
+  top: 29%;
+  right: 0;
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+.interest-orbit__item:nth-child(3) {
+  right: 7%;
+  bottom: 4%;
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+.interest-orbit__item:nth-child(4) {
+  bottom: 4%;
+  left: 7%;
+}
+
+.interest-orbit__item:nth-child(5) {
+  top: 29%;
+  left: 0;
+}
+
+.interest-orbit__icon {
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid color-mix(in srgb, var(--ui-primary) 20%, var(--ui-border));
+  border-radius: 9999px;
+  background: color-mix(in srgb, var(--ui-bg-elevated) 80%, transparent);
+}
+
 .theme-switch--light {
   display: none;
 }

@@ -18,11 +18,16 @@ steps:
       - bun run check
 
   - name: docker
-    image: woodpeckerci/plugin-docker-buildx:6.1.1
-    settings:
-      dry_run: true
-      repo: wissem-industries/wissem-home
-      github_packages_token:
+    image: moby/buildkit:v0.33.0-rootless
+    environment:
+      BUILDKITD_FLAGS: --oci-worker-no-process-sandbox
+      GITHUB_PACKAGES_TOKEN:
         from_secret: github_packages_token
-      secrets:
-        - id=github_packages_token\,env=PLUGIN_GITHUB_PACKAGES_TOKEN
+    commands:
+      - >
+        buildctl-daemonless.sh build
+        --frontend dockerfile.v0
+        --local context=.
+        --local dockerfile=.
+        --secret id=github_packages_token,env=GITHUB_PACKAGES_TOKEN
+        --output type=oci,dest=/tmp/wissem-home.tar
