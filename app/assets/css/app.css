@@ -19,48 +19,51 @@ html {
   -webkit-mask-image: linear-gradient(to bottom, black, transparent 82%);
 }
 
-.glass-hover {
-  --liquid-x: 50%;
-  --liquid-y: 50%;
-  --liquid-active: 0;
-  position: relative;
-  isolation: isolate;
-}
-
-.glass-hover::before {
-  position: absolute;
-  inset: -1.25rem;
-  z-index: -1;
-  pointer-events: none;
-  content: "";
-  background: radial-gradient(
-    8rem circle at calc(var(--liquid-x) + 1.25rem) calc(var(--liquid-y) + 1.25rem),
-    color-mix(in srgb, var(--ui-primary) 34%, transparent) 0,
-    color-mix(in srgb, var(--ui-primary) 14%, transparent) 38%,
-    transparent 72%
-  );
-  filter: blur(0.65rem);
-  opacity: calc(var(--liquid-active) * 0.72);
-  transition: opacity 180ms ease;
-}
-
-.glass-hover > .glass-surface {
-  border: 1px solid color-mix(in srgb, var(--ui-border) 76%, transparent);
-  background: color-mix(in srgb, var(--ui-bg-elevated) 68%, transparent);
+.portfolio-navbar {
+  border: 1px solid color-mix(in srgb, var(--ui-border) 48%, transparent);
+  background: color-mix(in srgb, var(--ui-bg-elevated) 66%, transparent);
   box-shadow:
-    inset 0 1px 0 color-mix(in srgb, white 13%, transparent),
-    0 8px 24px color-mix(in srgb, black 9%, transparent);
-  -webkit-backdrop-filter: blur(14px);
-  backdrop-filter: blur(14px);
-  transition: border-color 180ms ease;
+    inset 0 1px 0 color-mix(in srgb, white 8%, transparent),
+    0 8px 24px color-mix(in srgb, black 8%, transparent);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
 }
 
-.glass-hover:hover > .glass-surface {
-  border-color: color-mix(in srgb, var(--ui-primary) 20%, var(--ui-border));
+.portfolio-navbar a[aria-current="page"] {
+  background: color-mix(in srgb, white 4%, transparent);
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, white 8%, transparent),
+    0 5px 18px color-mix(in srgb, white 7%, transparent);
 }
 
-.glass-hover-skill::before {
-  opacity: calc(var(--liquid-active) * 0.42);
+.theme-switch--light {
+  display: none;
+}
+
+html.dark .theme-switch--dark {
+  display: none;
+}
+
+html.dark .theme-switch--light {
+  display: inline-flex;
+}
+
+html.light .theme-switch--dark {
+  display: inline-flex;
+}
+
+html.light .theme-switch--light {
+  display: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  html:not(.light, .dark) .theme-switch--dark {
+    display: none;
+  }
+
+  html:not(.light, .dark) .theme-switch--light {
+    display: inline-flex;
+  }
 }
 
 .reveal-enabled .reveal {
@@ -80,11 +83,6 @@ html {
   .reveal-enabled .reveal {
     opacity: 1;
     transform: none;
-    transition: none;
-  }
-
-  .glass-hover::before,
-  .glass-surface {
     transition: none;
   }
 }

@@ -6,6 +6,10 @@ export default defineNuxtConfig({
   devtools: { enabled: false },
   css: ['~/assets/css/app.css'],
   modules: ['@nuxtjs/i18n', '@nuxtjs/plausible'],
+  colorMode: {
+    storage: 'cookie',
+    storageKey: 'site_theme',
+  },
   runtimeConfig: {
     telegramBotToken: '',
     telegramChatId: '',

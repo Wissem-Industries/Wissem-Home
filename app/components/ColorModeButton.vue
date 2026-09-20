@@ -1,26 +1,40 @@
 <script setup lang="ts">
 const colorMode = useColorMode()
 const { content } = usePortfolioContent()
-const isDark = computed(() => colorMode.value === 'dark')
+const themeCookie = useCookie<'light' | 'dark' | undefined>('site_theme')
+const route = useRoute()
 
-function toggle() {
-  colorMode.preference = isDark.value ? 'light' : 'dark'
+function fallbackHref(mode: 'light' | 'dark') {
+  return `/theme/${mode}?redirect=${encodeURIComponent(route.fullPath)}`
+}
+
+function setTheme(mode: 'light' | 'dark') {
+  colorMode.preference = mode
+  themeCookie.value = mode
 }
 </script>
 
 <template>
-  <ClientOnly>
-    <UButton
-      :aria-label="isDark ? content.theme.light : content.theme.dark"
-      :icon="isDark ? 'i-ri-sun-line' : 'i-ri-moon-line'"
-      color="neutral"
-      variant="ghost"
-      size="sm"
-      class="rounded-full"
-      @click="toggle"
-    />
-    <template #fallback>
-      <span class="block size-8" />
-    </template>
-  </ClientOnly>
+  <UButton
+    :to="fallbackHref('dark')"
+    external
+    :aria-label="content.theme.dark"
+    icon="i-ri-moon-line"
+    color="neutral"
+    variant="ghost"
+    size="sm"
+    class="theme-switch theme-switch--dark rounded-full"
+    @click.prevent="setTheme('dark')"
+  />
+  <UButton
+    :to="fallbackHref('light')"
+    external
+    :aria-label="content.theme.light"
+    icon="i-ri-sun-line"
+    color="neutral"
+    variant="ghost"
+    size="sm"
+    class="theme-switch theme-switch--light rounded-full"
+    @click.prevent="setTheme('light')"
+  />
 </template>

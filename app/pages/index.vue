@@ -219,30 +219,28 @@ useJsonLd(
       <section class="space-y-10 border-t border-default py-16 lg:py-24">
         <SectionHeading :title="content.profile.skillsTitle" eyebrow="04" />
         <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-          <div
+          <WGlassCard
             v-for="group in content.profile.skills"
             :key="group.title"
-            class="glass-hover glass-hover-skill reveal h-full rounded-lg"
+            class="reveal h-full"
           >
-            <UCard class="glass-surface h-full">
-              <div class="flex h-full flex-col gap-6">
-                <div class="space-y-2">
-                  <h3 class="font-medium text-highlighted">{{ group.title }}</h3>
-                  <p class="text-sm leading-6 text-muted">{{ group.description }}</p>
-                </div>
-                <div class="mt-auto flex flex-wrap gap-2">
-                  <UBadge
-                    v-for="item in group.items"
-                    :key="`${group.title}-${item}`"
-                    :label="item"
-                    color="primary"
-                    variant="subtle"
-                    size="sm"
-                  />
-                </div>
+            <div class="flex h-full flex-col gap-6">
+              <div class="space-y-2">
+                <h3 class="font-medium text-highlighted">{{ group.title }}</h3>
+                <p class="text-sm leading-6 text-muted">{{ group.description }}</p>
               </div>
-            </UCard>
-          </div>
+              <div class="mt-auto flex flex-wrap gap-2">
+                <UBadge
+                  v-for="item in group.items"
+                  :key="`${group.title}-${item}`"
+                  :label="item"
+                  color="primary"
+                  variant="subtle"
+                  size="sm"
+                />
+              </div>
+            </div>
+          </WGlassCard>
         </div>
       </section>
 

@@ -21,7 +21,7 @@ defineProps<{ items: TimelineEntry[] }>()
       <div class="flex items-start justify-between gap-4 lg:block">
         <div
           v-if="item.thumbnail"
-          class="flex h-20 w-32 shrink-0 items-center justify-center rounded-lg border border-primary/15 bg-primary/5 p-3 shadow-sm shadow-primary/5 lg:h-24 lg:w-44 lg:p-4"
+          class="flex h-20 w-32 shrink-0 items-center justify-center p-2 lg:h-24 lg:w-44 lg:p-3"
         >
           <img
             :src="item.thumbnail"

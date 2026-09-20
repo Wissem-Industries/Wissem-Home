@@ -3,6 +3,7 @@ import { isExternalLink } from '#shared/utils/links'
 
 const colorMode = useColorMode()
 const { content, locale, siteUrl } = useSiteSeo()
+const themeCookie = useCookie<'light' | 'dark' | undefined>('site_theme')
 const themeColor = computed(() => (colorMode.value === 'dark' ? '#0a0a0a' : '#fafafa'))
 const sameAs = computed(() =>
   content.value.links
@@ -12,7 +13,11 @@ const sameAs = computed(() =>
 
 useHead(() => ({
   titleTemplate: content.value.meta.titleTemplate,
-  htmlAttrs: { lang: locale.value },
+  htmlAttrs: {
+    lang: locale.value,
+    class:
+      themeCookie.value === 'light' || themeCookie.value === 'dark' ? themeCookie.value : undefined,
+  },
   meta: [
     { charset: 'utf-8' },
     { name: 'viewport', content: 'width=device-width, initial-scale=1' },
