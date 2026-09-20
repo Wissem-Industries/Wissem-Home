@@ -1,8 +1,6 @@
 export default defineNuxtPlugin((nuxtApp) => {
   function bindLiquidGlass() {
-    const surfaces = document.querySelectorAll<HTMLElement>(
-      '.liquid-glass:not([data-liquid-bound])',
-    )
+    const surfaces = document.querySelectorAll<HTMLElement>('.glass-hover:not([data-liquid-bound])')
 
     for (const surface of surfaces) {
       surface.dataset.liquidBound = 'true'

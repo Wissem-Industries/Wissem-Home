@@ -78,8 +78,8 @@ useBreadcrumbJsonLd(
       </p>
     </header>
 
-    <section class="grid gap-5 border-t border-default py-12 lg:grid-cols-[22rem_minmax(0,1fr)] lg:py-16">
-      <UCard class="reveal h-fit lg:sticky lg:top-28">
+    <section class="grid items-stretch gap-5 border-t border-default py-12 lg:grid-cols-[22rem_minmax(0,1fr)] lg:py-16">
+      <UCard class="reveal h-full">
         <div class="space-y-6">
           <div class="space-y-2">
             <h2 class="text-lg font-medium text-highlighted">{{ content.contact.sidebarTitle }}</h2>
@@ -93,7 +93,7 @@ useBreadcrumbJsonLd(
         </div>
       </UCard>
 
-      <UCard class="reveal">
+      <UCard class="reveal h-full">
         <UForm :state="state" class="space-y-6" @submit="onSubmit">
           <div class="grid gap-5 sm:grid-cols-2">
             <UFormField

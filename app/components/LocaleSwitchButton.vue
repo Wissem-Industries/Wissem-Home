@@ -1,12 +1,20 @@
 <script setup lang="ts">
-import { LOCALES, type LocaleCode } from '#shared/content'
+import type { LocaleCode } from '#shared/content'
 
 const { content, locale, setLocale } = usePortfolioContent()
-const route = useRoute()
 
-function fallbackHref(code: LocaleCode) {
-  return `/locale/${code}?redirect=${encodeURIComponent(route.fullPath)}`
-}
+const languages: Array<{ code: LocaleCode; label: string }> = [
+  { code: 'fr', label: 'Français' },
+  { code: 'en', label: 'English' },
+]
+
+const languageItems = computed(() =>
+  languages.map((language) => ({
+    label: `[${language.code.toUpperCase()}]  ${language.label}`,
+    icon: locale.value === language.code ? 'i-ri-check-line' : undefined,
+    onSelect: () => selectLocale(language.code),
+  })),
+)
 
 async function selectLocale(code: LocaleCode) {
   if (code !== locale.value) await setLocale(code)
@@ -14,23 +22,19 @@ async function selectLocale(code: LocaleCode) {
 </script>
 
 <template>
-  <div
-    role="group"
-    :aria-label="content.localeSwitchLabel"
-    class="flex items-center rounded-full border border-default/60 bg-elevated/55 p-0.5"
+  <UDropdownMenu
+    :items="languageItems"
+    :content="{ align: 'end', sideOffset: 8 }"
+    :ui="{ content: 'min-w-40', itemLabel: 'whitespace-pre' }"
   >
     <UButton
-      v-for="code in LOCALES"
-      :key="code"
-      :to="fallbackHref(code)"
-      external
-      :label="code.toUpperCase()"
-      :aria-pressed="locale === code"
-      :color="locale === code ? 'primary' : 'neutral'"
-      :variant="locale === code ? 'soft' : 'ghost'"
+      :label="locale.toUpperCase()"
+      :aria-label="content.localeSwitchLabel"
+      color="neutral"
+      variant="ghost"
+      trailing-icon="i-ri-arrow-down-s-line"
       size="xs"
-      class="min-h-7 rounded-full px-2 font-mono text-[10px]"
-      @click.prevent="selectLocale(code)"
+      class="w-14 justify-center rounded-full font-mono text-[10px]"
     />
-  </div>
+  </UDropdownMenu>
 </template>

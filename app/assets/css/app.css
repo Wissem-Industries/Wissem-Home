@@ -19,99 +19,48 @@ html {
   -webkit-mask-image: linear-gradient(to bottom, black, transparent 82%);
 }
 
-.liquid-glass {
+.glass-hover {
   --liquid-x: 50%;
   --liquid-y: 50%;
   --liquid-active: 0;
   position: relative;
   isolation: isolate;
-  overflow: hidden;
-  border-color: color-mix(in srgb, white 22%, var(--ui-border));
-  background: linear-gradient(
-    135deg,
-    color-mix(in srgb, var(--ui-bg-elevated) 92%, white 8%),
-    color-mix(in srgb, var(--ui-bg-elevated) 94%, var(--ui-primary) 6%)
-  );
-  box-shadow:
-    inset 0 1px 0 color-mix(in srgb, white 52%, transparent),
-    inset 1px 0 0 color-mix(in srgb, white 14%, transparent),
-    0 12px 38px color-mix(in srgb, black 12%, transparent);
-  transition:
-    border-color 220ms ease,
-    box-shadow 220ms ease,
-    transform 220ms ease;
 }
 
-.liquid-glass::before,
-.liquid-glass::after {
+.glass-hover::before {
   position: absolute;
+  inset: -1.25rem;
   z-index: -1;
   pointer-events: none;
   content: "";
-}
-
-.liquid-glass::before {
-  inset: -1px;
   background: radial-gradient(
-    190px circle at var(--liquid-x) var(--liquid-y),
-    color-mix(in srgb, white 34%, var(--ui-primary) 28%) 0,
-    color-mix(in srgb, var(--ui-primary) 22%, transparent) 34%,
+    8rem circle at calc(var(--liquid-x) + 1.25rem) calc(var(--liquid-y) + 1.25rem),
+    color-mix(in srgb, var(--ui-primary) 34%, transparent) 0,
+    color-mix(in srgb, var(--ui-primary) 14%, transparent) 38%,
     transparent 72%
   );
-  opacity: calc(0.14 + var(--liquid-active) * 0.86);
-  transition: opacity 220ms ease;
+  filter: blur(0.65rem);
+  opacity: calc(var(--liquid-active) * 0.72);
+  transition: opacity 180ms ease;
 }
 
-.liquid-glass::after {
-  inset: 0;
-  background:
-    radial-gradient(
-      ellipse at 14% -12%,
-      color-mix(in srgb, white 24%, transparent),
-      transparent 44%
-    ),
-    radial-gradient(
-      ellipse at 92% 118%,
-      color-mix(in srgb, var(--ui-primary) 17%, transparent),
-      transparent 52%
-    );
-}
-
-.liquid-glass > * {
-  position: relative;
-  z-index: 1;
-}
-
-.liquid-glass-nav {
+.glass-hover > .glass-surface {
+  border: 1px solid color-mix(in srgb, var(--ui-border) 76%, transparent);
+  background: color-mix(in srgb, var(--ui-bg-elevated) 68%, transparent);
   box-shadow:
-    inset 0 1px 0 color-mix(in srgb, white 55%, transparent),
-    0 12px 36px color-mix(in srgb, var(--ui-primary) 12%, transparent),
-    0 4px 12px color-mix(in srgb, black 8%, transparent);
+    inset 0 1px 0 color-mix(in srgb, white 13%, transparent),
+    0 8px 24px color-mix(in srgb, black 9%, transparent);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  transition: border-color 180ms ease;
 }
 
-.liquid-glass:hover,
-.liquid-glass-skill:hover {
-  border-color: color-mix(in srgb, var(--ui-primary) 46%, white 16%);
-  box-shadow:
-    inset 0 1px 0 color-mix(in srgb, white 60%, transparent),
-    0 0 0 1px color-mix(in srgb, var(--ui-primary) 10%, transparent),
-    0 22px 64px color-mix(in srgb, var(--ui-primary) 28%, transparent);
+.glass-hover:hover > .glass-surface {
+  border-color: color-mix(in srgb, var(--ui-primary) 20%, var(--ui-border));
 }
 
-.liquid-glass-skill:hover {
-  transform: translateY(-2px);
-}
-
-@supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-  .liquid-glass {
-    background: linear-gradient(
-      135deg,
-      color-mix(in srgb, var(--ui-bg-elevated) 70%, white 5%),
-      color-mix(in srgb, var(--ui-bg-elevated) 74%, var(--ui-primary) 5%)
-    );
-    -webkit-backdrop-filter: blur(26px) saturate(165%);
-    backdrop-filter: blur(26px) saturate(165%);
-  }
+.glass-hover-skill::before {
+  opacity: calc(var(--liquid-active) * 0.42);
 }
 
 .reveal-enabled .reveal {
@@ -134,12 +83,8 @@ html {
     transition: none;
   }
 
-  .liquid-glass,
-  .liquid-glass::before {
+  .glass-hover::before,
+  .glass-surface {
     transition: none;
-  }
-
-  .liquid-glass-skill:hover {
-    transform: none;
   }
 }

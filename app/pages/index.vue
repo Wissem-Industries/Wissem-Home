@@ -68,13 +68,22 @@ useJsonLd(
 <template>
   <div>
     <UContainer>
-      <section class="grid min-h-[calc(100vh-7rem)] items-center gap-8 pb-16 lg:grid-cols-[minmax(0,1.15fr)_minmax(20rem,0.85fr)] lg:gap-16 lg:pb-24">
-        <div class="space-y-8">
+      <section
+        class="grid min-h-[calc(100vh-7rem)] items-center gap-8 pb-16 lg:gap-16 lg:pb-24"
+        :class="content.profile.seekingInternship ? 'lg:grid-cols-[minmax(0,1.15fr)_minmax(20rem,0.85fr)]' : 'justify-items-center'"
+      >
+        <div
+          class="space-y-8"
+          :class="content.profile.seekingInternship ? '' : 'max-w-3xl text-center'"
+        >
           <div class="space-y-5">
-            <div class="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.12em] text-primary">
+            <div
+              class="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.12em] text-success"
+              :class="content.profile.seekingInternship ? '' : 'justify-center'"
+            >
               <span class="relative flex size-2.5">
-                <span class="absolute inline-flex size-full animate-ping rounded-full bg-primary opacity-55" />
-                <span class="relative inline-flex size-2.5 rounded-full bg-primary" />
+                <span class="absolute inline-flex size-full animate-ping rounded-full bg-success opacity-55" />
+                <span class="relative inline-flex size-2.5 rounded-full bg-success" />
               </span>
               <span>{{ content.profile.availability }}</span>
             </div>
@@ -92,7 +101,10 @@ useJsonLd(
             </div>
           </div>
 
-          <div class="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+          <div
+            class="flex flex-col gap-3 sm:flex-row sm:flex-wrap"
+            :class="content.profile.seekingInternship ? '' : 'justify-center'"
+          >
             <UButton
               :label="content.resume.label"
               :to="content.resume.href"
@@ -114,7 +126,10 @@ useJsonLd(
             />
           </div>
 
-          <div class="flex flex-wrap items-center gap-1">
+          <div
+            class="flex flex-wrap items-center gap-1"
+            :class="content.profile.seekingInternship ? '' : 'justify-center'"
+          >
             <UButton
               v-for="link in content.links"
               :key="link.id"
@@ -129,7 +144,10 @@ useJsonLd(
           </div>
         </div>
 
-        <div class="reveal relative mx-auto w-full max-w-md lg:mx-0 lg:ml-auto">
+        <div
+          v-if="content.profile.seekingInternship"
+          class="reveal relative mx-auto w-full max-w-md lg:mx-0 lg:ml-auto"
+        >
           <div class="absolute -inset-8 -z-10 bg-primary/10 blur-3xl" />
           <UCard :ui="{ body: 'p-7 sm:p-8' }">
             <div class="flex min-h-80 flex-col justify-between gap-9">
@@ -201,28 +219,30 @@ useJsonLd(
       <section class="space-y-10 border-t border-default py-16 lg:py-24">
         <SectionHeading :title="content.profile.skillsTitle" eyebrow="04" />
         <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-          <UCard
+          <div
             v-for="group in content.profile.skills"
             :key="group.title"
-            class="liquid-glass liquid-glass-skill reveal h-full"
+            class="glass-hover glass-hover-skill reveal h-full rounded-lg"
           >
-            <div class="flex h-full flex-col gap-6">
-              <div class="space-y-2">
-                <h3 class="font-medium text-highlighted">{{ group.title }}</h3>
-                <p class="text-sm leading-6 text-muted">{{ group.description }}</p>
+            <UCard class="glass-surface h-full">
+              <div class="flex h-full flex-col gap-6">
+                <div class="space-y-2">
+                  <h3 class="font-medium text-highlighted">{{ group.title }}</h3>
+                  <p class="text-sm leading-6 text-muted">{{ group.description }}</p>
+                </div>
+                <div class="mt-auto flex flex-wrap gap-2">
+                  <UBadge
+                    v-for="item in group.items"
+                    :key="`${group.title}-${item}`"
+                    :label="item"
+                    color="primary"
+                    variant="subtle"
+                    size="sm"
+                  />
+                </div>
               </div>
-              <div class="mt-auto flex flex-wrap gap-2">
-                <UBadge
-                  v-for="item in group.items"
-                  :key="`${group.title}-${item}`"
-                  :label="item"
-                  color="primary"
-                  variant="subtle"
-                  size="sm"
-                />
-              </div>
-            </div>
-          </UCard>
+            </UCard>
+          </div>
         </div>
       </section>
 
