@@ -8,8 +8,9 @@ steps:
       GITHUB_PACKAGES_TOKEN:
         from_secret: github_packages_token
     commands:
-      - npm config set //npm.pkg.github.com/:_authToken "$GITHUB_PACKAGES_TOKEN"
+      - printf '//npm.pkg.github.com/:_authToken=%s\n' "$${GITHUB_PACKAGES_TOKEN}" > /root/.npmrc
       - bun install --frozen-lockfile
+      - rm -f /root/.npmrc
 
   - name: check
     image: oven/bun:1.4.2-alpine
@@ -17,7 +18,8 @@ steps:
       - bun run check
 
   - name: docker
-    image: woodpeckerci/plugin-docker-buildx
+    image: woodpeckerci/plugin-docker-buildx:6.1.1
+    privileged: true
     environment:
       GITHUB_PACKAGES_TOKEN:
         from_secret: github_packages_token

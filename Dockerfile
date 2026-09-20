@@ -6,7 +6,7 @@ FROM base AS deps
 COPY package.json bun.lock ./
 COPY .npmrc ./
 RUN --mount=type=secret,id=github_packages_token,required=true \
-    npm config set //npm.pkg.github.com/:_authToken "$(cat /run/secrets/github_packages_token)" && \
+    printf '//npm.pkg.github.com/:_authToken=%s\n' "$(cat /run/secrets/github_packages_token)" > /root/.npmrc && \
     bun install --frozen-lockfile && \
     rm -f /root/.npmrc
 

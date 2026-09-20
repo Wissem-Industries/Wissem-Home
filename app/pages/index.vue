@@ -4,6 +4,13 @@ import { getLinkTarget, isExternalLink } from '#shared/utils/links'
 const { content } = usePortfolioContent()
 const { canonicalUrl, siteUrl } = useSiteSeo()
 const toast = useToast()
+const interestIcons = [
+  'i-ri-movie-2-line',
+  'i-ri-gamepad-line',
+  'i-ri-lifebuoy-line',
+  'i-ri-plane-line',
+  'i-ri-cpu-line',
+]
 const heroHighlight = computed(() =>
   content.value.profile.seekingInternship
     ? content.value.profile.internship
@@ -219,11 +226,7 @@ useJsonLd(
       <section class="space-y-10 border-t border-default py-16 lg:py-24">
         <SectionHeading :title="content.profile.skillsTitle" eyebrow="04" />
         <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-          <WGlassCard
-            v-for="group in content.profile.skills"
-            :key="group.title"
-            class="reveal h-full"
-          >
+          <UCard v-for="group in content.profile.skills" :key="group.title" class="reveal h-full">
             <div class="flex h-full flex-col gap-6">
               <div class="space-y-2">
                 <h3 class="font-medium text-highlighted">{{ group.title }}</h3>
@@ -240,7 +243,7 @@ useJsonLd(
                 />
               </div>
             </div>
-          </WGlassCard>
+          </UCard>
         </div>
       </section>
 
@@ -294,15 +297,26 @@ useJsonLd(
         <UCard class="reveal h-full">
           <div class="space-y-6">
             <h2 class="text-lg font-medium text-highlighted">{{ content.profile.interestsTitle }}</h2>
-            <div class="flex flex-wrap gap-2">
-              <UBadge
-                v-for="interest in content.profile.interests"
+            <ul class="space-y-4">
+              <li
+                v-for="(interest, index) in content.profile.interests"
                 :key="interest"
-                :label="interest"
-                color="neutral"
-                variant="soft"
-              />
-            </div>
+                class="flex items-center gap-3 text-sm font-medium text-highlighted"
+                :class="index % 2 === 0 ? 'justify-start' : 'justify-end text-right'"
+              >
+                <UIcon
+                  v-if="index % 2 === 0"
+                  :name="interestIcons[index]"
+                  class="size-5 shrink-0 text-primary"
+                />
+                <span>{{ interest }}</span>
+                <UIcon
+                  v-if="index % 2 !== 0"
+                  :name="interestIcons[index]"
+                  class="size-5 shrink-0 text-primary"
+                />
+              </li>
+            </ul>
           </div>
         </UCard>
 
