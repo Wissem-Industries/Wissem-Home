@@ -18,16 +18,9 @@ steps:
       - bun run check
 
   - name: docker
-    image: moby/buildkit:v0.33.0-rootless
+    image: gcr.io/kaniko-project/executor:v1.23.2-debug
     environment:
-      BUILDKITD_FLAGS: --oci-worker-no-process-sandbox
       GITHUB_PACKAGES_TOKEN:
         from_secret: github_packages_token
     commands:
-      - >
-        buildctl-daemonless.sh build
-        --frontend dockerfile.v0
-        --local context=.
-        --local dockerfile=.
-        --secret id=github_packages_token,env=GITHUB_PACKAGES_TOKEN
-        --output type=oci,dest=/tmp/wissem-home.tar
+      - /kaniko/executor --context "$${CI_WORKSPACE}" --dockerfile Dockerfile.ci --build-arg GITHUB_PACKAGES_TOKEN="$${GITHUB_PACKAGES_TOKEN}" --no-push

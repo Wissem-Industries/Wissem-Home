@@ -74,6 +74,8 @@ and `GITHUB_PACKAGES_TOKEN` as a Dokploy build secret.
 
 Tagged releases publish `ghcr.io/wissem-industries/wissem-home:<version>` and
 `ghcr.io/wissem-industries/wissem-home:latest` through Woodpecker CI.
+The CI-specific Dockerfile uses Kaniko so image validation and publication do
+not require a privileged runner.
 
 ## Content
 
