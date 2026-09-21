@@ -72,6 +72,9 @@ Docker builds require BuildKit and the `GITHUB_PACKAGES_TOKEN` environment
 variable. Configure `github_packages_token` as a Woodpecker repository secret
 and `GITHUB_PACKAGES_TOKEN` as a Dokploy build secret.
 
+Tagged releases publish `ghcr.io/wissem-industries/wissem-home:<version>` and
+`ghcr.io/wissem-industries/wissem-home:latest` through Woodpecker CI.
+
 ## Content
 
 Localized structured content lives in `shared/content`. Interface language is

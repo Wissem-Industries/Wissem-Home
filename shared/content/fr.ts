@@ -52,7 +52,7 @@ export const fr = {
   profile: {
     name: 'Wissem.',
     avatarAlt: 'Logo monochrome de Wissem Badraoui.',
-    status: 'Élève ingénieur à IMT Nord Europe, en première année du cycle ingénieur',
+    status: 'Élève ingénieur à IMT Nord Europe',
     objective: 'Élève ingénieur, ouvert aux échanges techniques et aux collaborations.',
     description:
       'Je m’intéresse au développement logiciel, au traitement de données, à la sécurité des systèmes et aux outils utiles aux équipes techniques.',

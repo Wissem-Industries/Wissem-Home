@@ -21,10 +21,10 @@ export const en = {
     applicationName: 'Wissem Badraoui',
     defaultTitle: 'Wissem Badraoui | Portfolio',
     defaultDescription:
-      'Professional portfolio of Wissem Badraoui, a first-year engineering student at IMT Nord Europe, with projects, experience, resume, and contact information.',
+      'Professional portfolio of Wissem Badraoui, an engineering student at IMT Nord Europe, with projects, experience, resume, and contact information.',
     socialImageAlt: "Preview of Wissem's portfolio",
     personDescription:
-      'First-year engineering student at IMT Nord Europe, interested in software development, data processing, systems security, and useful tools for technical teams.',
+      'Engineering student at IMT Nord Europe, interested in software development, data processing, systems security, and useful tools for technical teams.',
   },
   pages: {
     home: {
@@ -32,7 +32,7 @@ export const en = {
       heading: 'Portfolio',
       title: 'Wissem Badraoui, professional portfolio',
       description:
-        'Professional portfolio of Wissem Badraoui, a first-year engineering student at IMT Nord Europe, featuring technical projects, experience, resume, and contact details.',
+        'Professional portfolio of Wissem Badraoui, an engineering student at IMT Nord Europe, featuring technical projects, experience, resume, and contact details.',
     },
     projects: {
       eyebrow: 'Selected work',
@@ -52,7 +52,7 @@ export const en = {
   profile: {
     name: 'Wissem.',
     avatarAlt: 'Monochrome logo of Wissem Badraoui.',
-    status: 'First-year engineering student at IMT Nord Europe',
+    status: 'Engineering student at IMT Nord Europe',
     objective: 'Engineering student open to technical discussions and collaborations.',
     description:
       'I am interested in software development, data processing, systems security, and building useful tools for technical teams.',
