@@ -17,6 +17,8 @@ steps:
     image: oven/bun:1.4.2-alpine
     commands:
       - bun run check
+    depends_on:
+      - install
 
   - name: publish-image
     image: gcr.io/kaniko-project/executor:v1.23.2-debug
@@ -32,6 +34,8 @@ steps:
       - printf '{"auths":{"ghcr.io":{"auth":"%s"}}}\n' "$${AUTH}" > /kaniko/.docker/config.json
       - /kaniko/executor --context "$${CI_WORKSPACE}" --dockerfile Dockerfile.ci --build-arg GITHUB_PACKAGES_TOKEN="$${GITHUB_PACKAGES_TOKEN}" --destination "ghcr.io/wissem-industries/wissem-home:$${VERSION}" --destination ghcr.io/wissem-industries/wissem-home:latest
       - rm -f /kaniko/.docker/config.json
+    depends_on:
+      - check
 
   - name: deploy-production
     image: curlimages/curl:8.16.0
