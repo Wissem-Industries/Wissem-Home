@@ -39,10 +39,10 @@ export const en = {
       heading: 'Projects',
       title: 'Projects',
       description:
-        'A selection of personal and technical projects developed alongside my studies, with a focus on useful tools, web interfaces, and real-world environments.',
+        'A selection of personal and technical projects developed alongside academic studies, focused on useful tools, web interfaces, and real-world contexts.',
     },
     contact: {
-      eyebrow: "Let's talk",
+      eyebrow: 'Get in touch',
       heading: 'Contact',
       title: 'Contact',
       description:
@@ -55,7 +55,7 @@ export const en = {
     status: 'Engineering student at IMT Nord Europe',
     objective: 'Engineering student open to technical discussions and collaborations.',
     description:
-      'I am interested in software development, data processing, systems security, and building useful tools for technical teams.',
+      'Strong interest in software development, data processing, systems security, and useful tools for technical teams.',
     availability: 'Open to conversations',
     seekingInternship: false,
     internship: {
@@ -95,8 +95,8 @@ export const en = {
     contactCta: 'Get in touch',
     aboutTitle: 'About',
     about: [
-      'I enjoy practical projects where the goal is to start from a real need and improve an existing tool, make a workflow more reliable, or simplify the way a solution is used by a team.',
-      'I am particularly interested in software development, data processing, and security topics, with strong attention to reliability, clarity, and usefulness.',
+      'Preference for practical projects grounded in real needs: improving an existing tool, making a workflow more reliable, or simplifying its use within a team.',
+      'Particular interest in software development, data processing, and security, with consistent attention to reliability, clarity, and practical value.',
     ],
     experienceTitle: 'Experience',
     experience: [
@@ -107,11 +107,11 @@ export const en = {
         location: 'Paris',
         thumbnail: '/images/dgfip-logo.png',
         bullets: [
-          'Modernized and restructured a Python/Tkinter business application used by authorized auditors for payment audits and payment-anomaly analysis.',
-          'Improved high-volume data processing with SQLite and DuckDB by removing expensive or repeated operations.',
-          'Built multi-criteria search, review, qualification, and result presentation workflows while keeping human judgment central.',
-          'Strengthened traceability and session recovery while preserving existing business rules and data.',
-          'Consolidated the application and its user documentation through iterative feedback with supervisors and business users.',
+          'Modernization and restructuring of a Python/Tkinter business application supporting payment audits and anomaly analysis for authorized auditors.',
+          'Optimization of high-volume data processing with SQLite and DuckDB, notably through the removal of expensive or repeated operations.',
+          'Design of multi-criteria search, review, qualification, and result presentation workflows, with human judgment remaining central to the process.',
+          'Strengthening of traceability and interrupted-session recovery while preserving existing business rules and data.',
+          'Consolidation of the application and its user documentation through iterative feedback with supervisors and business users.',
         ],
       },
       {
@@ -121,10 +121,10 @@ export const en = {
         location: 'Angouleme',
         thumbnail: '/images/leroy-somer-logo.png',
         bullets: [
-          'Analyzed needs around an internal tool used by technicians and engineers.',
-          'Improved data processing and calculation methods to make the tool more reliable.',
-          'Reworked the Excel interface to improve readability and day-to-day usability.',
-          'Developed new VBA features and validated the results using real operational data.',
+          'Analysis of requirements for an internal tool used by technicians and engineers.',
+          'Improvement of data processing and calculation methods to strengthen the tool’s reliability.',
+          'Redesign of the Excel interface for greater readability and simpler day-to-day use.',
+          'Development of new VBA features and validation of results using real operational data.',
         ],
       },
       {
@@ -134,10 +134,10 @@ export const en = {
         location: 'Remote',
         thumbnail: '/images/rubiks.png',
         bullets: [
-          'Prepared updates and coordinated the progress of platform-related work.',
-          'Wrote specifications and collaborated with developers, designers, and contributors.',
-          'Contributed to platform features and technical systems.',
-          'Provided user support and helped process and prioritize reported issues.',
+          'Preparation of updates and coordination of platform-related work.',
+          'Writing of specifications and collaboration with developers, designers, and contributors.',
+          'Contribution to platform features and technical systems.',
+          'User support, issue handling, and prioritization of reported problems.',
         ],
       },
     ],
@@ -151,10 +151,10 @@ export const en = {
         thumbnail: '/images/imt-logo.png',
         details: [
           'First-year engineering-cycle student (undergraduate level +3).',
-          'Completed the integrated preparatory cycle in 2026.',
+          'Completion of the integrated preparatory cycle in 2026.',
           'General academic background in mathematics, physics, and computer science.',
           'Collaborative group work and project-based learning.',
-          'First foundations in project management.',
+          'Foundations in project management.',
         ],
       },
       {
@@ -163,7 +163,10 @@ export const en = {
         period: '2021 – 2024',
         location: 'Angouleme',
         thumbnail: '/images/saintpaul-logo.png',
-        details: ['Graduated with highest honors.', 'Majors in mathematics and physics-chemistry.'],
+        details: [
+          'Graduation with highest honors.',
+          'Majors in mathematics and physics-chemistry.',
+        ],
       },
     ],
     skillsTitle: 'Skills',
@@ -201,7 +204,7 @@ export const en = {
     ],
     projectsTitle: 'Selected projects',
     projectsDescription:
-      'A selection of personal and technical projects built alongside my studies.',
+      'A selection of personal and technical projects built alongside academic studies.',
     featuredProjectIds: ['satt-tool', 'zeldanes', 'password-manager'],
     allProjects: 'View all projects',
     languagesTitle: 'Languages',
@@ -259,7 +262,7 @@ export const en = {
       id: 'zeldanes',
       title: 'ZeldaNES',
       description:
-        'A Zelda-inspired project developed in C with SDL2 to build a game inspired by The Legend of Zelda during my studies.',
+        'Development in C with SDL2 of a game inspired by The Legend of Zelda as part of academic studies.',
       image: '/images/zelda.png',
       repo: 'https://github.com/WissemBad/ZeldaNES',
       tags: ['C', 'SDL2', 'Game', 'Zelda'],
@@ -279,7 +282,7 @@ export const en = {
       id: 'personal-portfolio',
       title: 'Personal portfolio',
       description:
-        'A personal website built with Nuxt and Nuxt UI to present my background, projects, and online resume.',
+        'Development of a personal website with Nuxt and Nuxt UI to present background, projects, and an online resume.',
       image: '/images/portfolio.png',
       url: 'https://www.wissem.pro',
       tags: ['Nuxt', 'Vue', 'Nuxt UI', 'Portfolio'],
@@ -320,10 +323,9 @@ export const en = {
   ],
   contact: {
     title: 'Contact',
-    description:
-      'You can contact me for technical discussions, collaborations, or any other enquiry.',
+    description: 'Contact for technical discussions, collaborations, or any other enquiry.',
     sidebarTitle: 'Details',
-    sidebarDescription: 'Ways to reach me and view my public profiles.',
+    sidebarDescription: 'Contact details and public profiles.',
     fields: {
       name: { label: 'Name', placeholder: 'Your name' },
       email: { label: 'Email', placeholder: 'you@example.com' },
@@ -343,7 +345,8 @@ export const en = {
     },
     messages: {
       successTitle: 'Message sent',
-      successDescription: 'Thank you for your message. I will get back to you as soon as possible.',
+      successDescription:
+        'Thank you for your message. A reply will be provided as soon as possible.',
       errorTitle: 'Unable to send',
       errorDescription: 'An error occurred while sending the message. Please try again later.',
       rateLimited: 'Too many attempts. Please try again in a few minutes.',

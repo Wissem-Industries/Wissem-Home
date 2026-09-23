@@ -39,10 +39,10 @@ export const fr = {
       heading: 'Projets',
       title: 'Projets',
       description:
-        'Une sélection de projets personnels et techniques réalisés en parallèle de mon parcours, avec un intérêt pour les outils utiles, les interfaces web et les environnements concrets.',
+        'Sélection de projets personnels et techniques réalisés en parallèle du parcours académique, autour d’outils utiles, d’interfaces web et de contextes concrets.',
     },
     contact: {
-      eyebrow: 'Échangeons',
+      eyebrow: 'Prise de contact',
       heading: 'Contact',
       title: 'Contact',
       description:
@@ -55,7 +55,7 @@ export const fr = {
     status: 'Élève ingénieur à IMT Nord Europe',
     objective: 'Élève ingénieur, ouvert aux échanges techniques et aux collaborations.',
     description:
-      'Je m’intéresse au développement logiciel, au traitement de données, à la sécurité des systèmes et aux outils utiles aux équipes techniques.',
+      'Intérêt marqué pour le développement logiciel, le traitement de données, la sécurité des systèmes et les outils utiles aux équipes techniques.',
     availability: 'Ouvert aux échanges',
     seekingInternship: false,
     internship: {
@@ -92,11 +92,11 @@ export const fr = {
         },
       ],
     },
-    contactCta: 'Me contacter',
+    contactCta: 'Prendre contact',
     aboutTitle: 'À propos',
     about: [
-      'J’apprécie les projets concrets, où il faut partir d’un besoin réel pour améliorer un outil existant, fiabiliser un traitement ou simplifier l’usage d’une solution pour une équipe.',
-      'Je m’intéresse particulièrement au développement logiciel, au traitement de données et aux enjeux de sécurité, avec une attention portée à la fiabilité, à la clarté et à l’utilité des solutions développées.',
+      'Goût pour les projets concrets fondés sur un besoin réel : amélioration d’un outil existant, fiabilisation d’un traitement ou simplification de son usage par une équipe.',
+      'Intérêt particulier pour le développement logiciel, le traitement de données et les enjeux de sécurité, avec une attention constante portée à la fiabilité, à la clarté et à l’utilité des solutions.',
     ],
     experienceTitle: 'Expériences',
     experience: [
@@ -107,11 +107,11 @@ export const fr = {
         location: 'Paris',
         thumbnail: '/images/dgfip-logo.png',
         bullets: [
-          'Modernisé et restructuré une application métier Python/Tkinter d’assistance à l’audit de paiements et à l’analyse d’anomalies, utilisée par des auditeurs habilités.',
-          'Optimisé le traitement de volumes de données importants avec SQLite et DuckDB en supprimant des opérations coûteuses ou répétées.',
-          'Conçu des parcours de recherche multicritère, de contrôle, de qualification et de restitution en maintenant le jugement humain au centre.',
-          'Renforcé la traçabilité et la reprise d’un travail interrompu tout en préservant les règles métier et les données existantes.',
-          'Consolidé l’application et sa documentation au fil d’itérations avec les encadrants et les utilisateurs métier.',
+          'Modernisation et restructuration d’une application métier Python/Tkinter d’assistance à l’audit de paiements et à l’analyse d’anomalies, utilisée par des auditeurs habilités.',
+          'Optimisation du traitement de volumes de données importants avec SQLite et DuckDB, notamment par la suppression d’opérations coûteuses ou répétées.',
+          'Conception de parcours de recherche multicritère, de contrôle, de qualification et de restitution, avec maintien du jugement humain au centre du processus.',
+          'Renforcement de la traçabilité et de la reprise d’un travail interrompu, dans le respect des règles métier et des données existantes.',
+          'Consolidation de l’application et de sa documentation au fil d’itérations avec les encadrants et les utilisateurs métier.',
         ],
       },
       {
@@ -121,10 +121,10 @@ export const fr = {
         location: 'Angoulême',
         thumbnail: '/images/leroy-somer-logo.png',
         bullets: [
-          'Analysé les besoins autour d’un outil interne utilisé par des techniciens et des ingénieurs.',
-          'Amélioré les traitements de données et les méthodes de calcul afin de renforcer la fiabilité de l’outil.',
-          'Revu l’interface Excel pour en améliorer la lisibilité et l’usage au quotidien.',
-          'Développé de nouvelles fonctionnalités en VBA puis validé les résultats à partir de données réelles.',
+          'Analyse des besoins autour d’un outil interne utilisé par des techniciens et des ingénieurs.',
+          'Amélioration des traitements de données et des méthodes de calcul afin de renforcer la fiabilité de l’outil.',
+          'Refonte de l’interface Excel pour une meilleure lisibilité et un usage quotidien simplifié.',
+          'Développement de nouvelles fonctionnalités en VBA et validation des résultats à partir de données réelles.',
         ],
       },
       {
@@ -134,10 +134,10 @@ export const fr = {
         location: 'À distance',
         thumbnail: '/images/rubiks.png',
         bullets: [
-          'Préparé des mises à jour et coordonné l’avancement de sujets liés à la plateforme.',
-          'Rédigé des spécifications et échangé avec développeurs, designers et contributeurs.',
-          'Contribué au développement de fonctionnalités et de systèmes liés à la plateforme.',
-          'Assuré un support utilisateur et participé au traitement ainsi qu’à la priorisation des problèmes signalés.',
+          'Préparation de mises à jour et coordination de sujets liés à la plateforme.',
+          'Rédaction de spécifications et collaboration avec développeurs, designers et contributeurs.',
+          'Contribution au développement de fonctionnalités et de systèmes liés à la plateforme.',
+          'Support utilisateur, traitement et priorisation des problèmes signalés.',
         ],
       },
     ],
@@ -201,7 +201,7 @@ export const fr = {
     ],
     projectsTitle: 'Quelques projets',
     projectsDescription:
-      'Une sélection de projets personnels et techniques réalisés en parallèle de mon parcours.',
+      'Sélection de projets personnels et techniques réalisés en parallèle du parcours académique.',
     featuredProjectIds: ['satt-tool', 'zeldanes', 'password-manager'],
     allProjects: 'Voir tous les projets',
     languagesTitle: 'Langues',
@@ -259,7 +259,7 @@ export const fr = {
       id: 'zeldanes',
       title: 'ZeldaNES',
       description:
-        'Projet autour de Zelda, développé en C avec la bibliothèque SDL2 pour créer un jeu inspiré de The Legend of Zelda au cours de mes études.',
+        'Développement en C avec la bibliothèque SDL2 d’un jeu inspiré de The Legend of Zelda dans le cadre des études.',
       image: '/images/zelda.png',
       repo: 'https://github.com/WissemBad/ZeldaNES',
       tags: ['C', 'SDL2', 'Game', 'Zelda'],
@@ -279,7 +279,7 @@ export const fr = {
       id: 'personal-portfolio',
       title: 'Portfolio personnel',
       description:
-        'Site personnel développé avec Nuxt et Nuxt UI pour présenter mon parcours, mes projets et mon CV en ligne.',
+        'Développement d’un site personnel avec Nuxt et Nuxt UI pour présenter parcours, projets et CV en ligne.',
       image: '/images/portfolio.png',
       url: 'https://www.wissem.pro',
       tags: ['Nuxt', 'Vue', 'Nuxt UI', 'Portfolio'],
@@ -321,9 +321,9 @@ export const fr = {
   contact: {
     title: 'Contact',
     description:
-      'Vous pouvez me contacter pour un échange technique, une collaboration ou toute autre demande.',
+      'Prise de contact pour un échange technique, une collaboration ou toute autre demande.',
     sidebarTitle: 'Coordonnées',
-    sidebarDescription: 'Les moyens pour me joindre et consulter mes profils publics.',
+    sidebarDescription: 'Coordonnées et profils publics.',
     fields: {
       name: { label: 'Nom', placeholder: 'Votre nom' },
       email: { label: 'Email', placeholder: 'vous@example.com' },
@@ -343,7 +343,7 @@ export const fr = {
     },
     messages: {
       successTitle: 'Message envoyé',
-      successDescription: 'Merci pour votre message, je reviendrai vers vous dès que possible.',
+      successDescription: 'Merci pour votre message. Une réponse sera apportée dès que possible.',
       errorTitle: 'Envoi impossible',
       errorDescription:
         'Une erreur est survenue lors de l’envoi du message. Merci de réessayer plus tard.',

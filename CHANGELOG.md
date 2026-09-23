@@ -4,6 +4,13 @@ All notable changes to Wissem Home are documented in this file.
 
 The project follows [Semantic Versioning](https://semver.org/).
 
+## [0.1.4] - 2026-09-23
+
+### Changed
+
+- Reworked all French and English portfolio copy into a concise, impersonal style.
+- Harmonized the wording of experience, education, project, profile, and contact content.
+
 ## [0.1.3] - 2026-09-23
 
 ### Fixed
@@ -33,6 +40,7 @@ The project follows [Semantic Versioning](https://semver.org/).
 - French and English content, projects, contact form, SEO, responsive layouts, and light/dark themes.
 - Container publishing and Dokploy production deployment workflow.
 
+[0.1.4]: https://github.com/Wissem-Industries/Wissem-Home/compare/v0.1.3...v0.1.4
 [0.1.3]: https://github.com/Wissem-Industries/Wissem-Home/compare/v0.1.2...v0.1.3
 [0.1.2]: https://github.com/Wissem-Industries/Wissem-Home/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/Wissem-Industries/Wissem-Home/compare/v0.1.0...v0.1.1
