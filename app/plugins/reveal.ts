@@ -21,8 +21,8 @@ export default defineNuxtPlugin((nuxtApp) => {
         },
       )
 
-  function observeReveals() {
-    const reveals = document.querySelectorAll<HTMLElement>('.reveal:not([data-reveal-bound])')
+  function observeReveals(root: ParentNode = document) {
+    const reveals = root.querySelectorAll<HTMLElement>('.reveal:not([data-reveal-bound])')
 
     for (const element of reveals) {
       element.dataset.revealBound = 'true'
@@ -34,8 +34,30 @@ export default defineNuxtPlugin((nuxtApp) => {
     }
   }
 
-  nuxtApp.hook('app:mounted', observeReveals)
+  let mutationObserver: MutationObserver | undefined
+  let scanFrame: number | undefined
+
+  function scheduleRevealScan() {
+    if (scanFrame !== undefined) cancelAnimationFrame(scanFrame)
+    scanFrame = requestAnimationFrame(() => {
+      scanFrame = undefined
+      observeReveals()
+    })
+  }
+
+  nuxtApp.hook('app:mounted', () => {
+    observeReveals()
+    mutationObserver = new MutationObserver((mutations) => {
+      if (mutations.some((mutation) => mutation.addedNodes.length > 0)) scheduleRevealScan()
+    })
+    mutationObserver.observe(document.body, { childList: true, subtree: true })
+  })
   nuxtApp.hook('page:finish', () => {
-    requestAnimationFrame(observeReveals)
+    scheduleRevealScan()
+  })
+  nuxtApp.vueApp.onUnmount(() => {
+    mutationObserver?.disconnect()
+    observer?.disconnect()
+    if (scanFrame !== undefined) cancelAnimationFrame(scanFrame)
   })
 })

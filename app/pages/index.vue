@@ -192,8 +192,8 @@ useJsonLd(
                 </div>
                 <div class="divide-y divide-default border-y border-default">
                   <div
-                    v-for="detail in heroHighlight.details"
-                    :key="detail.label"
+                    v-for="(detail, detailIndex) in heroHighlight.details"
+                    :key="detailIndex"
                     class="grid grid-cols-[1.25rem_5rem_minmax(0,1fr)] items-center gap-3 py-3 text-sm"
                   >
                     <UIcon :name="detail.icon" class="size-4 text-primary" />
@@ -210,7 +210,7 @@ useJsonLd(
       <section class="grid gap-8 border-t border-default py-16 lg:grid-cols-[0.75fr_1.25fr] lg:gap-16 lg:py-24">
         <SectionHeading :title="content.profile.aboutTitle" eyebrow="01" />
         <div class="reveal space-y-5 text-lg leading-8 text-muted">
-          <p v-for="paragraph in content.profile.about" :key="paragraph">
+          <p v-for="(paragraph, paragraphIndex) in content.profile.about" :key="paragraphIndex">
             {{ paragraph }}
           </p>
         </div>
@@ -231,7 +231,7 @@ useJsonLd(
         <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           <UCard
             v-for="(group, index) in content.profile.skills"
-            :key="group.title"
+            :key="index"
             class="motion-card reveal h-full"
             :style="revealStyle(index)"
           >
@@ -242,8 +242,8 @@ useJsonLd(
               </div>
               <div class="mt-auto flex flex-wrap gap-2">
                 <UBadge
-                  v-for="item in group.items"
-                  :key="`${group.title}-${item}`"
+                  v-for="(item, itemIndex) in group.items"
+                  :key="itemIndex"
                   :label="item"
                   color="primary"
                   variant="subtle"
@@ -293,7 +293,11 @@ useJsonLd(
           <div class="space-y-6">
             <h2 class="text-lg font-medium text-highlighted">{{ content.profile.languagesTitle }}</h2>
             <div class="space-y-5">
-              <div v-for="language in content.profile.languages" :key="language.name" class="space-y-2">
+              <div
+                v-for="(language, languageIndex) in content.profile.languages"
+                :key="languageIndex"
+                class="space-y-2"
+              >
                 <div class="flex items-center justify-between gap-3 text-sm">
                   <span class="font-medium text-highlighted">{{ language.name }}</span>
                   <span class="text-muted">{{ language.level }}</span>
@@ -315,7 +319,7 @@ useJsonLd(
             <ul class="interest-orbit__items">
               <li
                 v-for="(interest, index) in content.profile.interests"
-                :key="interest"
+                :key="index"
                 class="interest-orbit__item"
               >
                 <span class="interest-orbit__icon">

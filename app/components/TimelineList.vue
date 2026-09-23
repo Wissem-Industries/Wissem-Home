@@ -17,7 +17,7 @@ const { revealStyle } = useMotionPresets()
   <div class="divide-y divide-default border-y border-default">
     <article
       v-for="(item, index) in items"
-      :key="`${item.eyebrow}-${item.title}`"
+      :key="index"
       class="reveal grid gap-6 py-9 lg:grid-cols-[11rem_minmax(0,1fr)_12rem] lg:items-start lg:gap-8"
       :style="revealStyle(index)"
     >
