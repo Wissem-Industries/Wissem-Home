@@ -1,7 +1,26 @@
 # Wissem Home
 
-Personal portfolio for [wissem.pro](https://www.wissem.pro), rebuilt for
-Wissem's Industries with Nuxt 4 and the shared Wissem UI design system.
+<p align="center">
+  <strong>Le portfolio personnel de Wissem.</strong><br />
+  Présentation, projets et contact sur <a href="https://www.wissem.pro">wissem.pro</a>.
+</p>
+
+<p align="center">
+  <a href="https://ci.wissem.pro/repos/3"><img alt="Woodpecker CI" src="https://ci.wissem.pro/api/badges/3/status.svg" /></a>
+  <a href="https://github.com/Wissem-Industries/Wissem-Home/releases"><img alt="Latest version" src="https://img.shields.io/github/v/tag/Wissem-Industries/Wissem-Home?sort=semver&label=version" /></a>
+  <a href="https://ghcr.io/wissem-industries/wissem-home"><img alt="Production image on GHCR" src="https://img.shields.io/badge/GHCR-production-2496ED?logo=docker&logoColor=white" /></a>
+  <a href="LICENSE"><img alt="MIT license" src="https://img.shields.io/github/license/Wissem-Industries/Wissem-Home" /></a>
+</p>
+
+<p align="center">
+  <img alt="Nuxt 4" src="https://img.shields.io/badge/Nuxt-4-00DC82?logo=nuxt.js&logoColor=white" />
+  <img alt="Vue 3" src="https://img.shields.io/badge/Vue-3-4FC08D?logo=vuedotjs&logoColor=white" />
+  <img alt="Bun 1.4" src="https://img.shields.io/badge/Bun-1.4-FBF0DF?logo=bun&logoColor=000" />
+  <img alt="Biome" src="https://img.shields.io/badge/Biome-2-60A5FA?logo=biome&logoColor=white" />
+</p>
+
+This is a production site from **Wissem’s Industries**, built with Nuxt 4 and
+the shared Wissem UI design system.
 
 ## Stack
 
@@ -75,7 +94,8 @@ and `GITHUB_PACKAGES_TOKEN` as a Dokploy build secret.
 Tagged releases publish `ghcr.io/wissem-industries/wissem-home:<version>` and
 `ghcr.io/wissem-industries/wissem-home:latest` through Woodpecker CI.
 The CI-specific Dockerfile uses Kaniko so image validation and publication do
-not require a privileged runner.
+not require a privileged runner. Every release is recorded in GitHub
+Deployments under `production`; release titles follow `Wissem Home vX.Y.Z`.
 
 ## Content
 
