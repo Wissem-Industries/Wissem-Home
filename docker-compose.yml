@@ -5,7 +5,7 @@ services:
       secrets:
         - github_packages_token
       dockerfile: Dockerfile
-    image: wissem-home:production
+    image: ghcr.io/wissem-industries/home:latest
     init: true
     restart: unless-stopped
     env_file:

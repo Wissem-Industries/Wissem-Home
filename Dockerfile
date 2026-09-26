@@ -11,11 +11,13 @@ RUN --mount=type=secret,id=github_packages_token,required=true \
     rm -f /root/.npmrc
 
 FROM base AS build
+ARG IMAGE_VERSION=0.1.5
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 RUN bun run build
 
 FROM oven/bun:1.4.2-alpine AS runtime
+ARG IMAGE_VERSION=0.1.5
 WORKDIR /app
 
 ENV NODE_ENV=production
@@ -25,6 +27,11 @@ ENV NITRO_HOST=0.0.0.0
 ENV NITRO_PORT=3000
 
 COPY --from=build --chown=bun:bun /app/.output ./.output
+LABEL org.opencontainers.image.title="Wissem Home" \
+      org.opencontainers.image.description="Personal portfolio of Wissem Badraoui, built with Nuxt and Wissem UI" \
+      org.opencontainers.image.source="https://github.com/Wissem-Industries/Wissem-Home" \
+      org.opencontainers.image.url="https://www.wissem.pro" \
+      org.opencontainers.image.version=$IMAGE_VERSION
 
 USER bun
 EXPOSE 3000

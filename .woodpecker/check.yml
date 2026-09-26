@@ -1,5 +1,6 @@
 when:
   - event: push
+  - event: tag
 
 steps:
   - name: install
@@ -16,11 +17,3 @@ steps:
     image: oven/bun:1.4.2-alpine
     commands:
       - bun run check
-
-  - name: docker
-    image: gcr.io/kaniko-project/executor:v1.23.2-debug
-    environment:
-      GITHUB_PACKAGES_TOKEN:
-        from_secret: github_packages_token
-    commands:
-      - /kaniko/executor --context "$${CI_WORKSPACE}" --dockerfile Dockerfile.ci --build-arg GITHUB_PACKAGES_TOKEN="$${GITHUB_PACKAGES_TOKEN}" --no-push

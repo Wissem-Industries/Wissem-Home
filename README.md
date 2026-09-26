@@ -1,7 +1,7 @@
 # Wissem Home
 
 <p align="center">
-  <strong>Le portfolio personnel de Wissem.</strong><br />
+  <strong>Wissem Home V3 — le portfolio personnel de Wissem.</strong><br />
   Présentation, projets et contact sur <a href="https://www.wissem.pro">wissem.pro</a>.
 </p>
 
@@ -21,6 +21,9 @@
 
 This is a production site from **Wissem’s Industries**, built with Nuxt 4 and
 the shared Wissem UI design system.
+
+`V3` identifies the third generation of the portfolio. Release tags such as
+`v0.1.4` identify deployment versions and remain a separate version sequence.
 
 ## Stack
 
@@ -88,14 +91,17 @@ separate Dokploy service for preproduction, validate it with dedicated secrets,
 then attach `wissem.pro` after acceptance.
 
 Docker builds require BuildKit and the `GITHUB_PACKAGES_TOKEN` environment
-variable. Configure `github_packages_token` as a Woodpecker repository secret
-and `GITHUB_PACKAGES_TOKEN` as a Dokploy build secret.
+variable. Local builds use the BuildKit secret in `docker-compose.yml`.
+Woodpecker reads `github_packages_token` for the private UI dependency and GHCR;
+the token is passed to BuildKit as a secret, not as a Docker build argument.
 
-Tagged releases publish `ghcr.io/wissem-industries/wissem-home:<version>` and
-`ghcr.io/wissem-industries/wissem-home:latest` through Woodpecker CI.
-The CI-specific Dockerfile uses Kaniko so image validation and publication do
-not require a privileged runner. Every release is recorded in GitHub
-Deployments under `production`; release titles follow `Wissem Home vX.Y.Z`.
+Starting with `v0.1.5`, tagged releases publish
+`ghcr.io/wissem-industries/home:<version>` and `:latest` through Woodpecker,
+trigger the production Dokploy webhook, create a GitHub Release, and record the
+deployment under `production`. The former `wissem-home` package remains available
+with its old versions for rollback; GitHub does not offer a direct rename control
+for this container package. The new `home` image carries OCI title, description,
+source, URL and version metadata.
 
 ## Content
 

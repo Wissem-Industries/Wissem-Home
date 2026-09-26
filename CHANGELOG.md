@@ -2,6 +2,14 @@
 
 All notable changes to Wissem Home are documented in this file.
 
+## [0.1.5] - 2026-09-26
+
+- Publish future images as `ghcr.io/wissem-industries/home`.
+- Use BuildKit secrets for the private Wissem UI dependency.
+- Add OCI image metadata and automate GitHub Releases after successful deploy.
+
+[0.1.5]: https://github.com/Wissem-Industries/Wissem-Home/compare/v0.1.4...v0.1.5
+
 The project follows [Semantic Versioning](https://semver.org/).
 
 ## [0.1.4] - 2026-09-23
