@@ -1,10 +1,9 @@
 when:
-  - event: push
-  - event: tag
+  - event: [push, pull_request, tag]
 
 steps:
   - name: install
-    image: oven/bun:1.4.2-alpine
+    image: oven/bun:alpine
     environment:
       GITHUB_PACKAGES_TOKEN:
         from_secret: github_packages_token
@@ -14,6 +13,31 @@ steps:
       - rm -f /root/.npmrc
 
   - name: check
-    image: oven/bun:1.4.2-alpine
+    image: oven/bun:alpine
     commands:
       - bun run check
+    depends_on:
+      - install
+
+  - name: prepare-image-context
+    image: oven/bun:alpine
+    commands:
+      - mkdir -p .ci-image-context
+      - cp -R .output .ci-image-context/.output
+      - cp .woodpecker/Dockerfile.runtime .ci-image-context/Dockerfile
+    depends_on:
+      - check
+
+  - name: container-dry-run
+    image: woodpeckerci/plugin-kaniko:2.3.2
+    settings:
+      dry-run: true
+      repo: ghcr.io/wissem-industries/home
+      context: .ci-image-context
+      dockerfile: .ci-image-context/Dockerfile
+      tags:
+        - ${CI_COMMIT_SHA}
+    depends_on:
+      - prepare-image-context
+    when:
+      - event: [push, pull_request]
