@@ -1,5 +1,6 @@
 {
-  "name": "@wissem-industries/wissem-home",
+  "name": "@wissem-industries/home"
+  "description": "Personal portfolio and contact site for Wissem at wissem.pro.",,
   "version": "0.1.5",
   "private": true,
   "type": "module",

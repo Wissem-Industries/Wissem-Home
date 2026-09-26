@@ -3,7 +3,7 @@
   "configVersion": 1,
   "workspaces": {
     "": {
-      "name": "@wissem-industries/wissem-home",
+      "name": "@wissem-industries/home",
       "dependencies": {
         "@nuxtjs/i18n": "^10.6.0",
         "@nuxtjs/plausible": "^4.0.0",
