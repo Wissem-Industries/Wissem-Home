@@ -16,6 +16,8 @@ steps:
     image: oven/bun:alpine
     commands:
       - bun run check
+    depends_on:
+      - install
 
   - name: prepare-image-context
     image: oven/bun:alpine
