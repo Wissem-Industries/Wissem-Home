@@ -31,27 +31,26 @@ steps:
       - PACKAGE_VERSION=$(sed -n 's/.*"version"[[:space:]]*:[[:space:]]*"\([^"]*\)".*/\1/p' package.json | head -n 1)
       - test "$${VERSION}" = "$${PACKAGE_VERSION}"
       - bun run check
+      - bun run build
+      - mkdir -p .ci-image-context
+      - cp -R .output .ci-image-context/.output
+      - cp .woodpecker/Dockerfile.runtime .ci-image-context/Dockerfile
 
   - name: publish-image
-    image: woodpeckerci/plugin-docker-buildx:6.1.1
-    privileged: true
-    environment:
-      GITHUB_PACKAGES_TOKEN:
-        from_secret: github_packages_token
+    image: woodpeckerci/plugin-kaniko:2.3.2
     settings:
       registry: ghcr.io
       repo: ghcr.io/wissem-industries/home
       username: WissemBad
       password:
         from_secret: github_packages_token
+      context: .ci-image-context
       dockerfile: Dockerfile
       tags:
         - ${CI_COMMIT_TAG}
         - latest
       build_args:
         IMAGE_VERSION: ${CI_COMMIT_TAG}
-      secrets:
-        - id=github_packages_token,env=GITHUB_PACKAGES_TOKEN
 
   - name: deploy-production
     image: curlimages/curl:8.16.0
